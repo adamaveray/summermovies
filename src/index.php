@@ -167,19 +167,9 @@ $ratings	= array_keys($ratings);
 							<strong>Date:</strong>
 								<time datetime="<?=e($movie->date->format('c'));?>"><?=e($movieDate);?></time>
 						</li>
-						<li class="movie__detail movie__detail--venue"
-							data-id="<?=e($movie->venue->id);?>"
-							data-borough="<?=e($movie->venue->borough);?>"
-							data-location="<?=e($movie->venue->location);?>"
-							data-coords="<?=e($movie->venue->coords);?>"
-							data-image="<?=$movie->venue->image ? 1 : '';?>"
-							data-website="<?=e($movie->venue->website);?>"
-							data-facebook="<?=e($movie->venue->facebook);?>"
-							data-twitter="<?=e($movie->venue->twitter);?>"
-							data-foursquare="<?=e($movie->venue->foursquare);?>"
-							>
+						<li class="movie__detail movie__detail--venue">
 							<strong>Venue:</strong>
-								<?=e($movie->venue->name);?>
+								<a href="#venue-<?=e($movie->venue->id);?>"><?=e($movie->venue->name);?></a>
 						</li>
 					</ul>
 				</div>
@@ -203,38 +193,55 @@ $ratings	= array_keys($ratings);
 			<button type="submit">Sign Up</button>
 		</form>
 	</div>
+
+	<ul class="venues">
+		<?php foreach($venues as $venue){ ?>
+			<li class="venue-details"
+					id="venue-<?=e($venue->id);?>"
+					data-coords="<?=e($venue->coords);?>"
+					data-borough="<?=e($venue->borough);?>"
+					<?php if($venue->image){ ?>
+						data-image="<?=e('/img/venues/'.$venue->id.'.jpg');?>"
+					<?php } ?>
+				>
+				<h2 class="venue-details__name"><?=e($venue->name);?></h2>
+				<p class="venue-details__location"><?=e($venue->location);?></p>
+				<?php /*
+				<p class="venue__description"><?=e($venue->description);?></p>
+				*/ ?>
+
+				<ul class="venue-details__actions">
+					<?php if(isset($venue->coords)){ ?>
+					<li class="venue-details__action venue-details__action--directions">
+						<a class="venue-details__link" target="_blank" rel="nofollow" href="https://maps.google.com?saddr=Current+Location&daddr=<?=e($venue->coords);?>">Get Directions</a>
+					</li>
+					<?php } ?>
+					<?php if(isset($venue->website)){ ?>
+					<li class="venue-details__action venue-details__action--website">
+						<a class="venue-details__link" href="<?=e($venue->website);?>" target="_blank" rel="nofollow">View Website</a>
+					</li>
+					<?php } ?>
+					<?php $platforms = [
+						'Facebook'		=> $venue->facebook		? 'https://www.facebook.com/'.$venue->facebook	: null,
+						'Twitter'		=> $venue->twitter		? 'https://twitter.com/'.$venue->twitter		: null,
+						'Foursquare'	=> $venue->foursquare	? 'https://4sq.com/'.$venue->foursquare			: null,
+					];?>
+					<?php foreach($platforms as $platform => $url){ if(!isset($url)){ continue; } ?>
+					<li class="venue-details__action venue-details__action--social venue-details__action--social--<?=e(slugify($platform));?>">
+						<a class="venue-details__link" target="_blank" rel="nofollow" href="<?=e($url);?>"><?=e($platform);?></a>
+					</li>
+					<?php } ?>
+				</ul>
+			</li>
+		<?php } ?>
+	</ul>
 </main>
 
 <script type="text/x-data" id="pin-images"><?=file_get_contents($ROOT.'/img/map/pin.svg').'|'.file_get_contents($ROOT.'/img/map/pin-active.svg');?></script>
-<template id="template-venue-details">
-	<div class="map-details">
-		<header class="map-details__image">
-			<img />
-		</header>
-
-		<h2 class="map-details__title"></h2>
-		<p class="map-details__location"></p>
-		<p class="map-details__description"></p>
-
-		<ul class="map-details__actions">
-			<li class="map-details__action map-details__action--directions">
-				<a class="map-details__link" target="_blank" rel="nofollow" href="https://maps.google.com?saddr=Current+Location&daddr=">Get Directions</a>
-			</li>
-			<li class="map-details__action map-details__action--website">
-				<a class="map-details__link" target="_blank" rel="nofollow">View Website</a>
-			</li>
-			<?php $platforms = [
-				'Facebook'		=> 'https://www.facebook.com/',
-				'Twitter'		=> 'https://twitter.com/',
-				'Foursquare'	=> 'https://4sq.com/',
-			];?>
-			<?php foreach($platforms as $platform => $url){ ?>
-			<li class="map-details__action map-details__action--social map-details__action--social--<?=e(slugify($platform));?>">
-				<a class="map-details__link" target="_blank" rel="nofollow" href="<?=e($url);?>"><?=e($platform);?></a>
-			</li>
-			<?php } ?>
-		</ul>
-	</div>
+<template id="template-venue-image">
+	<header class="venue-details__image">
+		<img />
+	</header>
 </template>
 <template id="template-no-results">
 	<div class="search-feedback search-feedback--no-results">

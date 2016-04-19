@@ -53,6 +53,9 @@
 				case 'string':
 					if(step.substr(0, 1) === '.'){
 						level	= parent.getElementsByClassName(step.substr(1));
+						if(!level.length){
+							level	= null;
+						}
 					} else {
 						step	= step.toUpperCase();
 						for(var j = 0; j < parent.childNodes.length; j++){
@@ -192,10 +195,65 @@
 		moviesData,
 		venues;
 	var filterListeners	= [];
+	var filterValues	= {};
+
+	(function(){
+		// Load venues data
+		var venueElements	= document.getElementsByClassName('venue-details');
+		venues	= {};
+
+		var getVenueText		= function(element){
+			if(!element){
+				return null;
+			}
+			var text	= getText(element);
+			return text === '' ? null : text;
+		};
+		var getVenueAttribute	= function(element, attr){
+			if(!element){
+				return;
+			}
+			var text	= element.getAttribute(attr);
+			return (text == null || text === '') ? null : text;
+		};
+
+		for(var i = 0; i < venueElements.length; i++){
+			var element	= venueElements[i];
+
+			var venueID	= element.id.substr(6); // Remove 'venue-' prefix
+
+			// Parse coordinates
+			var coords	= element.getAttribute('data-coords');
+			if(coords){
+				coords	= coords.split(',');
+				if(coords.length === 2){
+					coords	= {lat: parseFloat(coords[0]), lng: parseFloat(coords[1])};
+				} else {
+					coords	= null;
+				}
+			}
+
+			venues[venueID]	= {
+				element:		element,
+				id:				venueID,
+				title:			getVenueText(findOne(element, ['.venue-details__name'])),
+				borough:		getVenueAttribute(element, 'data-borough'),
+				location:		getVenueText(findOne(element, ['.venue-details__location'])),
+				description:	getVenueText(findOne(element, ['.venue-details__name'])),
+				website:		getVenueAttribute(findOne(element, ['.venue-details__action--website', 'a']), 'href'),
+				facebook:		getVenueAttribute(findOne(element, ['.venue-details__action--social--facebook', 'a']), 'href'),
+				twitter:		getVenueAttribute(findOne(element, ['.venue-details__action--social--twitter', 'a']), 'href'),
+				foursquare:		getVenueAttribute(findOne(element, ['.venue-details__action--social--foursquare', 'a']), 'href'),
+				image:			getVenueAttribute(element, 'data-image'),
+				coords:			coords,
+				movies:			[],
+			};
+		}
+	}());
+
 	(function(){
 		// Load movie data
 		moviesData	= {};
-		venues		= {};
 		for(var i = 0; i < movieElements.length; i++){
 			var element	= movieElements[i];
 
@@ -205,40 +263,15 @@
 				year		= getText(findOne(titleBlock, ['.movie__title__year'])),
 				rating		= getText(findOne(titleBlock, ['.movie__title__rating', 2]));
 			var detailsBlock	= findOne(element, ['.movie__details']),
-				venueElement	= findOne(detailsBlock, ['.movie__detail--venue']),
+				venueElement	= findOne(detailsBlock, ['.movie__detail--venue', 'a']),
 				dateElement		= findOne(detailsBlock, ['.movie__detail--date', 3]);
 
 			var date	= dateElement ? new Date(dateElement.getAttribute('datetime')) : null;
 
+			// Link venue details
 			var venue	= null;
 			if(venueElement){
-				var venueID	= venueElement.getAttribute('data-id');
-				if(!venues[venueID]){
-					// Load coords
-					var coords	= venueElement.getAttribute('data-coords');
-					if(coords){
-						coords	= coords.split(',');
-						if(coords.length === 2){
-							coords	= {lat: parseFloat(coords[0]), lng: parseFloat(coords[1])};
-						} else {
-							coords	= null;
-						}
-					}
-					var image	= venueElement.getAttribute('data-image');
-					venues[venueID]	= {
-						id:			venueID,
-						title:		getText(find(venueElement, [2])),
-						borough:	venueElement.getAttribute('data-borough'),
-						location:	venueElement.getAttribute('data-location'),
-						website:	venueElement.getAttribute('data-website'),
-						facebook:	venueElement.getAttribute('data-facebook'),
-						twitter:	venueElement.getAttribute('data-twitter'),
-						foursquare:	venueElement.getAttribute('data-foursquare'),
-						coords:		coords,
-						movies:		[],
-						image:		image ? '/img/venues/'+venueID+'.jpg' : null,
-					};
-				}
+				var venueID	= venueElement.getAttribute('href').substr(7); // Remove '#venue-'
 				venue	= venues[venueID];
 			}
 
@@ -340,8 +373,6 @@
 			}
 		};
 	}());
-
-	var filterValues	= {};
 	function setFilters(newValues, apply){
 		for(var filter in newValues){ if(!newValues.hasOwnProperty(filter)){ continue; }
 			var value	= newValues[filter];
@@ -709,17 +740,18 @@
 	};
 	Map.prototype.loadVenues		= function(venues){
 		var _this	= this,
-			handler	= function(){
-				var venue	= this.dataVenue;
-				if(_this.activeVenue === venue){
+			handler	= function(event){
+				var venue	= this.dataVenue,
+					filter	= (event.filter === undefined || event.filter);
+				if(_this.activeVenue === venue && !event.manual){
 					_this.deactivateVenue(venue);
-					setFilters({
+					filter && setFilters({
 						venue:	null
 					});
 					_this.moviesInteractive	= true;
 				} else {
-					_this.activateVenue(venue, true);
-					setFilters({
+					_this.activateVenue(venue, true, !filter);
+					filter && setFilters({
 						venue:	this.dataVenue,
 					});
 					_this.moviesInteractive	= false;
@@ -763,29 +795,40 @@
 
 		return marker;
 	};
-	Map.prototype.activateVenue		= function(venue, showInfo){
+	Map.prototype.activateVenue		= function(venue, showInfo, focus){
+		var showLabel	= true;
+		var marker		= this.markerForVenue(venue);
+
 		if(this.activeVenue){
 			if(this.activeVenue === venue){
-				// Activating already-active venue - ignore
-				return;
+				if(!showInfo || marker.detailsPanel){
+					// Activating already-active venue - ignore
+					return;
+				} else {
+					// Need to show panel for active label
+					showLabel	= false;
+				}
+			} else {
+				// Clear currently-active venue
+				this.deactivateVenue(this.activeVenue);
 			}
-			// Clear currently-active venue
-			this.deactivateVenue(this.activeVenue);
 		}
 
-		this.activeVenue	= venue;
+		if(showLabel){
+			this.activeVenue	= venue;
 
-		// Highlight marker
-		var marker	= this.markerForVenue(venue);
-		this.highlightMarker(marker);
+			// Highlight marker
+			this.highlightMarker(marker);
 
-		// Show label
-		marker.label	= this.buildLabel(venue);
-		marker.label.open(this.map, marker);
+			// Show label
+			marker.label	= this.buildLabel(venue);
+			marker.label.open(this.map, marker);
+		}
 
 		if(showInfo){
 			// Show full details
-			var element	= this.buildInfoPanel(venue);
+			var element	= this.getVenuePanel(venue);
+			toggleClass(element, '__active', true);
 			toggleClass(element, '__transitioning', true);
 			element.style.display	= 'block';
 			window.setTimeout(function(){
@@ -793,6 +836,11 @@
 			}, 0);
 
 			marker.detailsPanel	= element;
+		}
+
+		if(focus){
+			this.map.setCenter(marker.getPosition());
+			this.map.setZoom(this.maxZoom);
 		}
 	};
 	Map.prototype.deactivateVenue	= function(venue){
@@ -815,7 +863,7 @@
 
 			toggleClass(element, '__transitioning', true);
 			window.setTimeout(function(){
-				removeNode(element);
+				toggleClass(element, '__active', false);
 			}, 1500);
 			// TODO: WAIT FOR ACTUAL EVENT
 		}
@@ -863,72 +911,24 @@
 		});
 		return label;
 	};
-	Map.prototype.buildInfoPanel	= function(venue){
-		if(!this.infoPanelTemplate){
-			this.infoPanelTemplate	= trim(document.getElementById('template-venue-details').innerHTML);
-		}
+	Map.prototype.getVenuePanel	= function(venue){
+		var element	= venue.element;
 
-		var panel	= loadTemplate(this.infoPanelTemplate);
+		// Load image
+		if(venue.image && !venue.imageLoaded){
+			var imageContainer	= loadTemplate(document.getElementById('template-venue-image').innerHTML, true).firstChild,
+				image			= findOne(imageContainer, ['img']);
 
-		// Set details
-		this.fillInfoPanel(panel, venue);
-
-		// Add to page
-		insertBefore(panel, this.element.nextSibling);
-		return panel;
-	};
-	Map.prototype.fillInfoPanel		= function(panel, venue){
-		var el;
-		var get	= function(selectors, content){
-			var element	= findOne(panel, selectors);
-			if(!element){
-				return null;
-			}
-			if(!content){
-				removeNode(element);
-				return null;
-			}
-
-			return element;
-		};
-		var setInnerText	= function(selectors, content){
-			if(el = get(selectors, content)){
-				setText(el, content);
-			}
-		};
-
-		// Basics
-		setInnerText(['.map-details__title'], venue.title);
-		setInnerText(['.map-details__location'], venue.location);
-		setInnerText(['.map-details__description'], venue.description);
-
-		// Links
-		var setSubAttr	= function(selectors, subSelectors, content, attr){
-			if(el = get(selectors, content)){
-				findOne(el, subSelectors).setAttribute(attr, content);
-			}
-		};
-		var appendSubAttr	= function(selectors, subSelectors, content, attr){
-			if(el = get(selectors, content)){
-				el	= findOne(el, subSelectors);
-				el.setAttribute(attr, el.getAttribute(attr) + content);
-			}
-		};
-
-		var coords	= venue.coords.lat+','+venue.coords.lng;
-		appendSubAttr(['.map-details__action--directions'], [1], encodeURIComponent(coords), 'href');
-
-		setSubAttr(['.map-details__action--website'], [1], venue.website, 'href');
-		appendSubAttr(['.map-details__action--social--facebook'], [1], venue.facebook, 'href');
-		appendSubAttr(['.map-details__action--social--twitter'], [1], venue.twitter, 'href');
-		appendSubAttr(['.map-details__action--social--foursquare'], [1], venue.foursquare, 'href');
-
-		// Image
-		if(el = get(['.map-details__image'], venue.image)){
-			var image	= el.childNodes[1];
 			image.setAttribute('alt', venue.title);
 			image.setAttribute('src', venue.image);
+
+			insertBefore(imageContainer, element.firstChild);
+
+			// Prevent reloading image
+			venue.imageLoaded	= true;
 		}
+
+		return element;
 	};
 
 	Map.prototype.monitorMovies		= function(){
@@ -966,6 +966,13 @@
 
 			_this.deactivateVenue(this.__private_venue__);
 		};
+		var callbackVenueClick	= function(e){
+			e.preventDefault();
+			var venue	= this.__private_venue__,
+				marker	= _this.markerForVenue(venue);
+
+			_this.Maps.event.trigger(marker, 'click', {manual: true, filter: false});
+		};
 
 		this.moviesInteractive	= true;
 		for(var venueID in venues){ if(!venues.hasOwnProperty(venueID)){ continue; }
@@ -975,6 +982,11 @@
 				element.__private_venue__	= venue;
 				element.addEventListener('mouseover', callbackOver, true);
 				element.addEventListener('mouseleave', callbackOut, true);
+
+				// Show venue on venue name click
+				var venueElement	= findOne(element, ['.movie__detail--venue', 'a']);
+				venueElement.__private_venue__	= venue;
+				venueElement.addEventListener('click', callbackVenueClick, true);
 			}
 		}
 	};
