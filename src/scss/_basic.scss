@@ -1,0 +1,70 @@
+// Links
+a {
+	color:	#3286d4;
+	text-decoration:	none;
+
+	&:hover,
+	&:focus {
+		text-decoration:	underline;
+	}
+}
+
+.cta,
+button[type="submit"] {
+	border:		solid 2px $color-red;
+	padding:	0.1em 0.8em 0 0.8em;
+	line-height:	1.8;
+	background:		none;
+	color:			$color-red;
+	text-transform:	uppercase;
+	transition:			all 0.2s;
+	-webkit-appearance:	none;
+
+	&:hover,
+	&:focus {
+		background:	$color-red;
+		color:		$color-white;
+	}
+	&:active {
+		border-color:	darken($color-red, 10%);
+		background:		darken($color-red, 10%);
+		color:			$color-white;
+	}
+}
+
+// Image containers
+.image {
+	display:	block;
+	margin:		0;
+	overflow:	hidden;
+
+	& img {
+		display:	block;
+		width:		100%;
+		height:		auto;
+
+		@supports (object-fit: cover) {
+			height:	100%;
+			-o-object-fit:	cover;
+			object-fit:		cover;
+		}
+	}
+}
+
+// Fonts
+body {
+	font-family:	$font-body;
+}
+
+h1,
+h2,
+h3 {
+	font-family:	$font-headings;
+	font-weight:	normal;
+}
+
+h2 {
+	font-size:		1.3em;
+	font-weight:	bold;
+	color:			$color-red;
+}

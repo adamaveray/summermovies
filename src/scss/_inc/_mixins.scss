@@ -1,0 +1,68 @@
+@mixin media-hidpi {
+	@media print,
+		   (-webkit-min-device-pixel-ratio: 1.25),
+		   (min-resolution: 1.25dppx),
+		   (min-resolution: 120dpi){
+		@content;
+	}
+}
+
+@function addCommentTag($tag, $input){
+	@return unquote('/* @#{$tag} */') $input;
+}
+
+@mixin svg-background($svg-path, $width: null, $height: null, $color: transparent, $position: 50% 50%, $repeat: no-repeat, $fallback-path: null, $inline: false) {
+	@if $fallback-path == null {
+		$fallback-path:	str-replace($svg-path, '.svg', '.png');
+	}
+
+	$image: url($svg-path);
+	@if $inline {
+		$image: addCommentTag('inline', $image);
+	}
+	background:			$color $image $position $repeat;
+	background-size:	$width $height;
+	@content;
+
+	.no-svg & {
+		background-image:	url($fallback-path);
+	}
+}
+
+@mixin image-replaced($image-path, $width, $height, $background-color: transparent, $position: 50% 50%, $repeat: no-repeat, $background-width: null, $background-height: null, $inline: false) {
+	@extend %ir;
+
+	$background-width: $width !default;
+	$background-height: $height !default;
+
+	width:	$width;
+	height:	$height;
+
+	@if $image-path != null and str-slice($image-path, -4) == '.svg' {
+		// SVG background
+		@include svg-background($image-path, $background-width, $background-height, $background-color, $position, $repeat, $inline: $inline);
+	} @else {
+		// Regular background
+		$image: null;
+		@if $image-path != null {
+			$image: url($image-path);
+			@if $inline {
+				$image: addCommentTag('inline', $image);
+			}
+		}
+		background:	$background-color $image $position $repeat;
+	}
+
+	@content;
+}
+
+@mixin absolutely-centred($width, $height: null, $top: 50%, $left: 50%){
+	$height: $width !default;
+
+	top:	$top;
+	left:	$left;
+	width:	$width;
+	height:	$height;
+	margin-top:		-($height / 2);
+	margin-left:	-($width / 2);
+}
