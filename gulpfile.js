@@ -160,6 +160,16 @@ registerTask('styles', src('scss/**/*.scss'), function(source){
 });
 
 var htmlInject	= noop;	// Noop
+var htmlminOptions	= {
+	removeComments:				true,
+	collapseWhitespace:			true,
+	conservativeCollapse:		true,
+	removeTagWhitespace:		true,
+	removeRedundantAttributes:	true,
+	removeEmptyAttributes:		true,
+	keepClosingSlash:			true,
+	quoteCharacter:				'"',
+};
 registerTask('html', src('index.php'), function(source){
 	var streams	= merge();
 
@@ -175,16 +185,7 @@ registerTask('html', src('index.php'), function(source){
 				}
 			}.bind(i)))
 			.pipe(isProduction
-					? htmlmin({
-						removeComments:				true,
-						collapseWhitespace:			true,
-						conservativeCollapse:		true,
-						removeTagWhitespace:		true,
-						removeRedundantAttributes:	true,
-						removeEmptyAttributes:		true,
-						keepClosingSlash:			true,
-						quoteCharacter:				'"',
-					})
+					? htmlmin(htmlminOptions)
 					: noop())
 			.pipe(htmlInject())
 			.pipe(dest(''));
@@ -204,16 +205,7 @@ registerTask('html:supporting', src('{404,500}.php'), function(source){
 			}))
 			.pipe(
 				isProduction
-					? htmlmin({
-						removeComments:				true,
-						collapseWhitespace:			true,
-						conservativeCollapse:		true,
-						removeTagWhitespace:		true,
-						removeRedundantAttributes:	true,
-						removeEmptyAttributes:		true,
-						keepClosingSlash:			true,
-						quoteCharacter:				'"',
-					})
+					? htmlmin(htmlminOptions)
 					: noop()
 			)
 			.pipe(htmlInject())
