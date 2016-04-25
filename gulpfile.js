@@ -119,7 +119,7 @@ registerTask('styles', src('scss/**/*.scss'), function(source){
 				browsers:	['> 1%']
 			}))
 			.pipe(inlineImages(dirDest))
-			.pipe(cssmin())
+			.pipe(isProduction ? cssmin() : noop())
 			.pipe(dest('css'))
 			//.pipe(rename({
 			//	suffix: '.min'
