@@ -71,6 +71,12 @@ while(!feof($handle)){
 	}
 
 	$data[$i]	= $row;
+
+	if(preg_match('~^\(.+\)$~', $row[COLUMN_title])){
+		// Pending movie
+		continue;
+	}
+
 	addMovieRequest($i, $row[COLUMN_title], $row[COLUMN_year]);
 }
 fclose($handle);
