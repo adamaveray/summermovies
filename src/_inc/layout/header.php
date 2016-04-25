@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__.'/../tpl.php');
+require_once(__DIR__.'/../lib.php');
 ?><!doctype html>
 <!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8"><![endif]-->
@@ -10,7 +10,7 @@ require_once(__DIR__.'/../tpl.php');
 	<meta charset="utf-8" />
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
 	
-	<title><?=pageTitle($pageTitle, 'Summer Movies NYC')?></title>
+	<title>Summer Movies NYC</title>
 	<?php if(isset($pageDescription)){ ?>
 		<meta name="description" content="<?=e($pageDescription)?>" />
 	<?php } ?>
@@ -26,6 +26,6 @@ require_once(__DIR__.'/../tpl.php');
 	<script src="/js/vendor/modernizr-3.2.0.min.js"></script>
 	<?=(isset($head) ? $head : '');?>
 </head>
-<body<?php if(isset($pageID)){ ?> class="page--<?=e($pageID);?>"<?php } ?>>
+<body>
 	<!--[if lte IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
 	<a href="#main" tabindex="1" class="accessibility-aid" id="nav-skip">Skip to content</a>

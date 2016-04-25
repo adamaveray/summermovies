@@ -20,7 +20,7 @@
 	<?=(isset($scripts) ? $scripts : '');?>
 	<?=(isset($foot) ? $foot : '');?>
 	<?php if(ANALYTICS_ID !== ''){ ?>
-    <script>window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;ga('create','<?=e(ANALYTICS_ID);?>','auto');ga('send','pageview'<?php if(isset($analyticsURL)){ echo ',\''.e($analyticsURL).'\''; } ?>)</script>
+    <script>window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;ga('create','<?=e(ANALYTICS_ID);?>','auto');ga('send','pageview')</script>
 	<?php } ?>
 </body>
 </html>

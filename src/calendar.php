@@ -1,6 +1,6 @@
 <?php
 $ROOT=__DIR__;
-require_once($ROOT.'/_inc/tpl.php');
+require_once($ROOT.'/_inc/lib.php');
 
 $lineLength	= 75;
 $lineBreak	= "\n";

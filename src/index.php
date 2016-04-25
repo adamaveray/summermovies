@@ -1,9 +1,7 @@
 <?php
 $ROOT=__DIR__;
-require_once($ROOT.'/_inc/tpl.php');
+require_once($ROOT.'/_inc/lib.php');
 
-$pageID				= 'home';
-$pageTitle			= null;
 // $pageDescription	= 'The description of the page';
 
 $scripts	= '<script src="https://maps.googleapis.com/maps/api/js?key='.e(MAPS_KEY).'&callback=googleMapsReady" async defer></script>';
