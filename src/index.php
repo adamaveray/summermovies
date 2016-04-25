@@ -104,7 +104,7 @@ $ratings	= array_keys($ratings);
 	?>
 	<?php foreach($movies as $movie){ ?>
 		<?php
-		$activeVenues[]	= $movie->venue;
+		$activeVenues[$movie->venue->id]	= $movie->venue;
 
 		$newMonth 	= $movie->date->format('F');
 		$movieDate	= $movie->date->format('D M j');
