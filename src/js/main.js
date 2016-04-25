@@ -951,15 +951,27 @@
 
 		if(showInfo){
 			// Show full details
-			var element	= this.getVenuePanel(venue);
+			var element	= this.getVenuePanel(venue),
+				overlay	= loadTemplate(document.getElementById('template-venue-dismiss').innerHTML).firstChild;
+
 			toggleClass(element, '__active', true);
 			toggleClass(element, '__transitioning', true);
+			toggleClass(overlay, '__transitioning', true);
 			element.style.display	= 'block';
 			window.setTimeout(function(){
 				toggleClass(element, '__transitioning', false);
+				toggleClass(overlay, '__transitioning', false);
 			}, 0);
 
 			marker.detailsPanel	= element;
+
+			// Setup overlay
+			var _this	= this;
+			element.__private_overlay__	= overlay;
+			insertBefore(overlay, element.parentNode.nextSibling);
+			overlay.addEventListener('click', function(){
+				_this.deactivateVenue(venue);
+			});
 		}
 
 		if(focus){
@@ -982,12 +994,19 @@
 		}
 
 		if(marker.detailsPanel){
-			var element	= marker.detailsPanel;
+			var element	= marker.detailsPanel,
+				overlay	= element.__private_overlay__;
 			marker.detailsPanel	= null;
 
 			toggleClass(element, '__transitioning', true);
+			if(overlay){
+				toggleClass(overlay, '__transitioning', true);
+			}
 			onTransitionEnd(element, function(){
 				toggleClass(element, '__active', false);
+				if(overlay){
+					removeNode(overlay);
+				}
 			});
 		}
 	};

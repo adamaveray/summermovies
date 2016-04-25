@@ -250,6 +250,9 @@ $ratings	= array_keys($ratings);
 		<img />
 	</header>
 </template>
+<template id="template-venue-dismiss">
+	<button class="venue-details-dismiss">Close Venue</button>
+</template>
 <template id="template-no-results">
 	<div class="search-feedback search-feedback--no-results">
 		<h2>No Movies Found</h2>

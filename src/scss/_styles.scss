@@ -908,7 +908,7 @@ main {
 			top:			50%;
 			margin-top:		$margin * 2;
 			max-height:		40%;
-			max-height:		calc(50% - 2.4rem - 1.2em);
+			max-height:		calc(50% - unquote("#{$margin * 2}") - unquote("#{$margin}"));
 			overflow-y:		auto;
 			left:			$margin;
 			right:			50%;
@@ -916,13 +916,57 @@ main {
 			z-index:		10;
 			background:		#fff;
 			transition:		top 0.3s cubic-bezier(0.700, -0.140, 0.230, 1.185),
+							bottom 0.3s cubic-bezier(0.700, -0.140, 0.230, 1.185),
 							opacity 0.3s cubic-bezier(0.920, 0.235, 0.980, 0.335);
+
+			&-dismiss {
+				@extend %ir;
+				display:	none;
+			}
 
 			@media only screen and (min-width: ($max-width*2) + 75) {
 				left:			25%;
 				right:			auto;
 				width:			$max-width;
 				margin-left:	-$max-width/2;
+			}
+
+			@media only screen and (max-width: $breakpoint-columns) {
+				margin:		0;
+				top:		auto;
+				left:		0;
+				right:		0;
+				bottom:		0;
+				padding:	$margin;
+				width:		auto;
+				max-height:	90%;
+				max-height:	calc(100% - unquote("#{$margin * 2}"));
+
+				&.__transitioning {
+					top:	auto;
+					bottom:	-100%;
+				}
+
+				&-dismiss {
+					display:	block;
+					position:	fixed;
+					top:		0;
+					left:		0;
+					right:		0;
+					bottom:		0;
+					border:		none;
+					z-index:	9;
+					cursor:				default;
+					background:			#000;
+					background:			rgba(0,0,0,0.8);
+					border-radius:		0;
+					-webkit-appearance:	none;
+					transition:			opacity 0.3s 0.1s;
+
+					&.__transitioning {
+						opacity:	0;
+					}
+				}
 			}
 		}
 
