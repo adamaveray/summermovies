@@ -111,7 +111,7 @@ registerTask('posters', 'data/*/posters/*.jpg', function(source){
 				: noop()
 			)
 			.pipe(rename(function(path){
-				path.dirname	= path.dirname.replace(/^(\d+)\/posters[\/]/, 'posters/$1');
+				path.dirname	= path.dirname.replace(/^(\d+)\/posters/, 'posters/$1');
 			}))
 			.pipe(dest('img'));
 });
