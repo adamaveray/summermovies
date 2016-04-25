@@ -86,6 +86,12 @@ registerTask('images', src('img/**/*.{jpg,png,gif,svg}'), function(source){
 			.pipe(dest('img'));
 });
 
+registerTask('fonts', src('font/**/*.*'), function(source){
+	return gulp
+			.src(source)
+			.pipe(dest('font'));
+});
+
 registerTask('scripts', src('js/**/*.js'), function(source){
 	var pipe	= gulp
 		.src(source)

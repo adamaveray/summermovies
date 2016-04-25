@@ -30,6 +30,6 @@
 	}
 }
 
-
 // Font definitions
-//@include font-face('', '/font/');
+@include font-face('Montserrat', '/font/montserrat/montserrat-semibold', 700);
+@include font-face('Montserrat', '/font/montserrat/montserrat-regular', 400);
