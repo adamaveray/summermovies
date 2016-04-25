@@ -166,7 +166,11 @@ $ratings	= array_keys($ratings);
 				<?php } ?>
 				<div class="movie__content">
 					<h3 class="movie__title">
-						<strong class="movie__title__name"><?=e($movie->title)?></strong>
+						<?php if(isset($movie->url)){ ?>
+							<a class="movie__title__name" href="<?=e($movie->url);?>" target="_blank" rel="nofollow"><?=e($movie->title)?></a>
+						<?php } else { ?>
+							<strong class="movie__title__name"><?=e($movie->title)?></strong>
+						<?php } ?>
 
 						<?php if(isset($movie->year)){?>
 						<span class="separator">–</span>
