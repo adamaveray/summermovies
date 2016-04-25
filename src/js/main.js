@@ -302,8 +302,7 @@
 				rating		= getText(findOne(titleBlock, ['.movie__title__rating', 2]));
 			var detailsBlock	= findOne(element, ['.movie__details']),
 				venueElement	= findOne(detailsBlock, ['.movie__detail--venue', 'a']),
-				dateElement		= findOne(detailsBlock, ['.movie__detail--date', 3]);
-
+				dateElement		= findOne(detailsBlock, ['.movie__detail--date', 'time']);
 			var dateString	= dateElement ? dateElement.getAttribute('datetime') : null,
 				date		= dateElement ? new Date(dateString) : null;
 
@@ -328,6 +327,10 @@
 			moviesData[element.id]	= movieData;
 			if(venue){
 				venue.movies.push(movieData)
+			}
+
+			if(!date){
+				continue;
 			}
 			if(!dates[date]){
 				dates[date]	= {
