@@ -125,10 +125,12 @@ if(!$headings){
 }
 
 // Execute requests
-do {
-	curl_multi_exec($curlPool, $running);
-	curl_multi_select($curlPool);
-} while ($running > 0);
+if(count($curlPoolHandles) > 0){
+	do {
+		curl_multi_exec($curlPool, $running);
+		curl_multi_select($curlPool);
+	} while ($running > 0);
+}
 
 $failures	= [];
 
