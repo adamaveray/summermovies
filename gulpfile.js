@@ -76,11 +76,11 @@ function dest(path){
 
 var watchSources	= {},
 	defaultTasks	= [];
-function registerTask(name, pattern, callback){
+function registerTask(name, pattern, callback, dependencies){
 	defaultTasks.push(name);
 
 	watchSources[pattern]	= [name];
-	return gulp.task(name, function(){
+	return gulp.task(name, dependencies || [], function(){
 		return callback(pattern);
 	});
 }
@@ -157,7 +157,7 @@ registerTask('styles', src('scss/**/*.scss'), function(source){
 				.pipe(dest('css'));
 	}
 	return stream;
-});
+}, isProduction ? ['images'] : []);
 
 var htmlInject	= noop;	// Noop
 var htmlminOptions	= {
