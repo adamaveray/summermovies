@@ -183,6 +183,15 @@ gulp.task('sync-data', function(){
 			.pipe(exec.reporter());
 });
 
+gulp.task('fetch-posters', function(){
+	const year	= args.year;
+
+	return gulp
+			.src('./fetch-posters.php')
+			.pipe(exec('php -f "<%= file.path %>" -- "<%= options.customYear %>"', {customYear: year}))
+			.pipe(exec.reporter());
+});
+
 // Reload on data changes
 watchSources['./data/**/*.csv']	= ['html'];
 

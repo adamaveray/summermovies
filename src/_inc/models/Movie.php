@@ -12,6 +12,7 @@ class Movie extends Model {
 	public $synopsis;
 	public $rating;
 	public $poster;
+	public $posterSource;
 
 	public $cost;
 

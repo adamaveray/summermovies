@@ -30,16 +30,17 @@ function loadData($year){
 
 	/** @var Movie[] $movies */
 	$movies	= loadCSV(DATA_DIR.'/'.$year.'/movies.csv', [
-		'date'		=> ['type' => 'date'],
-		'venue'		=> [],
-		'title'		=> [],
-		'year'		=> ['optional' => true],
-		'synopsis'	=> ['optional' => true],
-		'url'		=> ['optional' => true, 'type' => 'url'],
-		'cost'		=> ['optional' => true],
-		'details'	=> ['optional' => true],
-		'rating'	=> ['optional' => true],
-		'poster'	=> ['optional' => true],
+		'date'			=> ['type' => 'date'],
+		'venue'			=> [],
+		'title'			=> [],
+		'year'			=> ['optional' => true],
+		'synopsis'		=> ['optional' => true],
+		'url'			=> ['optional' => true, 'type' => 'url'],
+		'cost'			=> ['optional' => true],
+		'details'		=> ['optional' => true],
+		'rating'		=> ['optional' => true],
+		'posterSource'	=> ['optional' => true],
+		'poster'		=> ['optional' => true],
 	], function($data) use($venues){
 		// Load venue
 		$venueID	= $data['venue'];
