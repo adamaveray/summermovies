@@ -892,7 +892,7 @@ footer[role="contentinfo"] {
 		margin:		0;
 		font-size:	0.75em;
 
-		+ p:before {
+		~ p:before {
 			content:	" • ";
 			margin:		0 0.2em;
 		}
