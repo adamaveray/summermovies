@@ -393,7 +393,7 @@ main {
 	$movie-padding-side:	1.2rem;
 	.movies-month {
 		// Cover bottom element rule
-		margin:			-$movie-rule-height 0 0 0 0;
+		margin:			-$movie-rule-height 0 0 0;
 		padding:		0.3em $movie-padding-side 0.2em $movie-padding-side;
 		border-bottom:	solid 0.2em $color-red;
 		color:			$color-red;
