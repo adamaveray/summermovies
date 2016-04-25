@@ -484,7 +484,7 @@ main {
 
 			&__content {
 				margin-top:	-$poster-align;	// Handle minor misalignment
-				width:		unquote('calc(100% - #{$poster-width + $poster-margin})');
+				width:		calc(100% - #{$poster-width + $poster-margin});
 			}
 
 			&__title {
@@ -908,7 +908,7 @@ main {
 			top:			50%;
 			margin-top:		$margin * 2;
 			max-height:		40%;
-			max-height:		calc(50% - unquote("#{$margin * 2}") - unquote("#{$margin}"));
+			max-height:		calc(50% - #{$margin * 2} - #{$margin});
 			overflow-y:		auto;
 			left:			$margin;
 			right:			50%;
@@ -940,7 +940,7 @@ main {
 				padding:	$margin;
 				width:		auto;
 				max-height:	90%;
-				max-height:	calc(100% - unquote("#{$margin * 2}"));
+				max-height:	calc(100% - #{$margin * 2});
 
 				&.__transitioning {
 					top:	auto;
@@ -986,9 +986,9 @@ main {
 			> img {
 				display:		block;
 				width:			100%;
-				width:			unquote("calc(100% + #{$margin} + #{$margin})");
-				margin-top:		unquote("calc(#{-$margin})");
-				margin-left:	unquote("calc(#{-$margin})");
+				width:			calc(100% + #{$margin} + #{$margin});
+				margin-top:		calc(-#{$margin});
+				margin-left:	calc(-#{$margin});
 			}
 		}
 		&__name {
