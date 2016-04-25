@@ -846,6 +846,15 @@
 			}
 		}
 
+		// Prevent loading webfont
+		var head			= document.getElementsByTagName('head')[0],
+			insertBefore	= head.insertBefore;
+		head.insertBefore	= function(newElement, referenceElement){
+			if(!newElement.href || newElement.href.indexOf('https://fonts.googleapis.com/css?family=Roboto') !== 0){
+				insertBefore.call(head, newElement, referenceElement);
+			}
+		};
+
 		this.map	= new this.Maps.Map(this.element, options);
 	};
 	Map.prototype.loadVenues		= function(venues){
