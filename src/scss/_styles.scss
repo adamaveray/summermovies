@@ -653,6 +653,36 @@ main {
 						}
 					}
 				}
+
+			@media only screen and (max-width: 405px) {
+				&__poster,
+				&__content {
+					display:	block;
+				}
+					&__poster {
+						margin:	0 auto 0.6em auto;
+
+						.movie--no-poster & {
+							display:	none;
+						}
+					}
+					&__content {
+						width:	100%;
+					}
+			}
+
+			@media only screen and (max-width: 475px),
+				   only screen and (min-width: $breakpoint-columns) and (max-width: $breakpoint-columns + 250px) {
+				&__detail {
+					display:	block;
+					width:		100%;
+					text-align:	left;
+
+					+ .movie__detail {
+						margin-top:	0.3em;
+					}
+				}
+			}
 		}
 
 		.movies--compact {
