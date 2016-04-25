@@ -163,7 +163,6 @@ var htmlInject	= noop;	// Noop
 var htmlminOptions	= {
 	removeComments:				true,
 	collapseWhitespace:			true,
-	conservativeCollapse:		true,
 	removeTagWhitespace:		true,
 	removeRedundantAttributes:	true,
 	removeEmptyAttributes:		true,
