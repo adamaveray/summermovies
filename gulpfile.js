@@ -123,25 +123,25 @@ registerTask('fonts', src('font/**/*.*'), function(source){
 });
 
 registerTask('scripts', src('js/**/*.js'), function(source){
-	var pipe	= gulp
+	var stream	= gulp
 		.src(source)
 		.pipe(sourcemaps.init());
+
 	if(isProduction){
-		pipe	= pipe
-			//.pipe(concat('main.min.js'))
+		stream	= stream
 			.pipe(uglify())
-			//.pipe(rename({
-			//	suffix: '.min'
-			//}))
-			.pipe(dest('js'));
-	}
-	return pipe
+			.pipe(dest('js'))
+	} else {
+		stream	= stream
 			.pipe(sourcemaps.write('.', {addComment: false}))
 			.pipe(dest('js'));
+	}
+
+	return stream;
 });
 
 registerTask('styles', src('scss/**/*.scss'), function(source){
-	return gulp
+	var stream	= gulp
 			.src(source)
 			.pipe(sourcemaps.init())
 			.pipe(sass())
@@ -149,13 +149,14 @@ registerTask('styles', src('scss/**/*.scss'), function(source){
 				browsers:	['> 1%']
 			}))
 			.pipe(inlineImages(dirDest))
-			.pipe(isProduction ? cssmin() : noop())
-			.pipe(dest('css'))
-			//.pipe(rename({
-			//	suffix: '.min'
-			//}))
-			.pipe(sourcemaps.write('.'))
+			.pipe(isProduction ? cssmin({ compatibility: 'ie8' }) : noop())
 			.pipe(dest('css'));
+	if(isDev){
+		stream	= stream
+				.pipe(sourcemaps.write('.'))
+				.pipe(dest('css'));
+	}
+	return stream;
 });
 
 var htmlInject	= noop;	// Noop
