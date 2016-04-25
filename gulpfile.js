@@ -222,7 +222,7 @@ registerTask('calendar', src('calendar.php'), function(source){
 			.pipe(dest(''));
 });
 
-registerTask('resources', src('.htaccess'), function(source){
+registerTask('resources', src('{.htaccess,CNAME}'), function(source){
 	// Copy to destination
 	return gulp
 			.src(source)
