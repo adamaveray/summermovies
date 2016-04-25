@@ -2,7 +2,7 @@
 $ROOT=__DIR__;
 require_once($ROOT.'/_inc/lib.php');
 
-// $pageDescription	= 'The description of the page';
+$pageDescription	= 'Summertime means outdoor movies time. See what movies are screening this summer across New York.';
 
 $scripts	= '<script src="https://maps.googleapis.com/maps/api/js?key='.e(MAPS_KEY).'&callback=googleMapsReady" async defer></script>';
 
