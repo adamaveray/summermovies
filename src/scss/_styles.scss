@@ -305,7 +305,7 @@ main {
 					input[value="#{$value}"]:checked + label {	background-position:	$on; }
 				}
 
-				letter-spacing:	0.3em;
+				letter-spacing:	0;
 
 				&:after {
 					content:	"";
@@ -328,8 +328,16 @@ main {
 				label {
 					@include image-replaced('#{$dir-images}/filters/size-toggle.svg', 18px, 18px, $background-width: 38px, $background-height: 38px, $inline: true);
 					display:		inline-block;
+					margin:			0 0.4em;
 					vertical-align:	top;
 					cursor:			pointer;
+
+					&:first-of-type {
+						margin-left:	0;
+					}
+					&:last-of-type {
+						margin-right:	0;
+					}
 				}
 
 				@include filter-display-item('full', 0 0, 0 100%);
