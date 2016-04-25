@@ -86,6 +86,22 @@ registerTask('images', src('img/**/*.{jpg,png,gif,svg}'), function(source){
 			.pipe(dest('img'));
 });
 
+registerTask('posters', 'data/*/posters/*.jpg', function(source){
+	return gulp
+			.src(source)
+			.pipe(isProduction
+				? imagemin({
+					optimizationLevel:	4,
+					progressive:		true,
+				})
+				: noop()
+			)
+			.pipe(rename(function(path){
+				path.dirname	= path.dirname.replace(/^(\d+)\/posters[\/]/, 'posters/$1');
+			}))
+			.pipe(dest('img'));
+});
+
 registerTask('fonts', src('font/**/*.*'), function(source){
 	return gulp
 			.src(source)

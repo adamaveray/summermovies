@@ -9,6 +9,7 @@ $overwriteExisting	= (isset($argv[2]) && $argv[2]);
 
 define('DATA_FILE', __DIR__.'/data/'.$year.'/movies.csv');
 define('OUTPUT_URL', '/img/posters');
+define('OUTPUT_DIR', '/data/'.$year.'/posters');
 define('COLUMN_title',			2);
 define('COLUMN_year',			3);
 define('COLUMN_posterSource',	9);
@@ -43,7 +44,7 @@ function getPosterPaths($row){
 	$posterID	= trim(preg_replace('~[^a-zA-Z0-9]+~', '-', $posterID), '-');
 
 	$url	= OUTPUT_URL.'/'.$year.'/'.$posterID.'.jpg';
-	$path	= __DIR__.'/src'.$url;
+	$path	= __DIR__.OUTPUT_DIR.'/'.$posterID.'.jpg';
 
 	return [$path, $url];
 }
