@@ -106,10 +106,16 @@ while(!feof($handle)){
 
 	$data[$i]	= $row;
 
+	$source	= $row[COLUMN_posterSource];
+	if(!isset($source) || $source === ''){
+		// No poster to load
+		continue;
+	}
+
 	list($path, )	= getPosterPaths($row);
 	if($overwriteExisting || !file_exists($path)){
 		// Need to load poster
-		addPosterRequest($i, $row[COLUMN_posterSource]);
+		addPosterRequest($i, $source);
 	}
 }
 fclose($handle);
