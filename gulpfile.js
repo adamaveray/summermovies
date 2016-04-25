@@ -8,6 +8,7 @@ const exec = require('gulp-exec');
 const htmlmin = require('gulp-htmlmin');
 const fs = require('fs');
 const imagemin = require('gulp-imagemin');
+const merge = require('merge-stream');
 //const pngquant = require('imagemin-pngquant');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
@@ -47,11 +48,24 @@ const inlineImages = (function(root){
 const noop	= require('through2').obj;
 
 const dirSrc	= './src',
-	  dirDest	= './dist';
+	  dirDest	= './dist',
+	  dirData	= './data';
 
 const environment	= args.environment || 'production',
 	  isProduction	= environment === 'production',
 	  isDev			= environment === 'development';
+
+const years	= (function(){
+	var files	= fs.readdirSync(dirData),
+		years	= [];
+	for(var i = 0; i < files.length; i++){
+		var file	= files[i];
+		if(file.match(/^\d+$/)){
+			years.push(file);
+		}
+	}
+	return years;
+}());
 
 function src(path){
 	return dirSrc+'/'+(path.replace(/^\//, ''));
@@ -145,7 +159,41 @@ registerTask('styles', src('scss/**/*.scss'), function(source){
 });
 
 var htmlInject	= noop;	// Noop
-registerTask('html', src('*.php'), function(source){
+registerTask('html', src('index.php'), function(source){
+	var streams	= merge();
+
+	var max	= years.length;
+	for(var i = 0; i < max; i++){
+		var pipe	= gulp
+			.src(source)
+			.pipe(exec('php -f "<%= file.path %>" -- --year <%= options.customYear %> --environment "<%= options.customEnv %>"', {pipeStdout: true, customYear: years[i], customEnv: environment}))
+			.pipe(rename(function(path){
+				path.extname	= '.html';
+				if(this != max-1){
+					path.dirname	+= '/'+years[this];
+				}
+			}.bind(i)))
+			.pipe(isProduction
+					? htmlmin({
+						removeComments:				true,
+						collapseWhitespace:			true,
+						conservativeCollapse:		true,
+						removeTagWhitespace:		true,
+						removeRedundantAttributes:	true,
+						removeEmptyAttributes:		true,
+						keepClosingSlash:			true,
+						quoteCharacter:				'"',
+					})
+					: noop())
+			.pipe(htmlInject())
+			.pipe(dest(''));
+
+		streams.add(pipe);
+	}
+
+	return streams;
+});
+registerTask('html:supporting', src('{404,500}.php'), function(source){
 	// Check for environment flag
 	return gulp
 			.src(source)
@@ -170,7 +218,6 @@ registerTask('html', src('*.php'), function(source){
 			.pipe(htmlInject())
 			.pipe(dest(''));
 });
-watchSources[src('**/*.php')]	= ['html'];
 
 registerTask('calendar', src('calendar.php'), function(source){
 	// Check for environment flag
@@ -209,7 +256,7 @@ gulp.task('fetch-posters', function(){
 });
 
 // Reload on data changes
-watchSources['./data/**/*.csv']	= ['html'];
+watchSources[dirData+'/**/*.csv']	= ['html'];
 
 gulp.task('html:autoreloader', function() {
 	const reloader = autoReload();
