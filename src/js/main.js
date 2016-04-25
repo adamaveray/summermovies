@@ -214,7 +214,7 @@
 	// Size toggle
 	(function(){
 		var elements	= document.getElementsByClassName('movies'),
-			classes		= elements[0].className;
+			classes		= (elements.length ? elements[0].className : '');
 		var toggle	= function(e){
 			var state	= e.target.value;
 
@@ -1034,6 +1034,11 @@
 			}
 		}
 
+		if(bounds.isEmpty()){
+			// Nothing to show
+			return;
+		}
+
 		this.map.fitBounds(bounds);
 		if(this.map.getZoom() > this.maxZoom){
 			this.map.setZoom(this.maxZoom);
@@ -1160,7 +1165,7 @@
 			Maps	= window.google.maps;
 
 		map	= new Map(Maps, element, moviesData);
-		map.show({lat: 40.771133, lng: -73.974187, zoom: map.maxZoom});
+		map.show({lat: 40.771133, lng: -73.974187, zoom: 11});
 
 		// Set icons
 		var pinImages	= document.getElementById('pin-images').innerHTML.split('|'),
