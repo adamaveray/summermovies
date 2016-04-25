@@ -1,7 +1,7 @@
 	<footer role="contentinfo">
 		<p>Thrown together by <a href="http://adamaveray.com.au/" target="_blank">Adam Averay</a></p>
 		<p>Movie metadata from <a href="http://www.omdbapi.com" target="_blank" rel="nofollow">OMDb API</a></p>
-		<p><a href="https://github.com/adamaveray/nyc-summer-movies/" target="_blank">Contribute</a></p>
+		<script>document.write('<p><'+'a  h'+(0 ? 'nul' : 'ref')+'="m'+'o,t,l,i,a'.split(',').reverse().join('')+':'+"Rr97&Wi100)Pc97.Vw109'Mn64%Ne97&Nt118(Et101$Vj114%Za97+Ps121'Wo46+Jd99,Gz111*Ol109$".replace(/[^a-zA-Z0-9]/g,';').replace(/[A-Z]/g,'&').replace(/[a-z]/g,'#')+'">'+"Contact"+'<\/a><\/p>');</script>
 	</footer>
 
 	<?php /*
