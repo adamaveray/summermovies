@@ -81,7 +81,7 @@ function registerTask(name, pattern, callback){
 
 	watchSources[pattern]	= [name];
 	return gulp.task(name, function(){
-		callback(pattern);
+		return callback(pattern);
 	});
 }
 
