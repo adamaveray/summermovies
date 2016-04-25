@@ -1,3 +1,20 @@
-ID,Name,Lat,Lng
-intrepid,"The Intrepid, Pier 86",40.764469,-74.000216
-central-park,"Central Park",40.771697,-73.974981
+id,name,location,borough,image,website,facebook,twitter,foursquare,lat,lng
+brooklyn-bridge-park,Brooklyn Bridge Park,Pier 1,brooklyn,,http://www.brooklynbridgepark.org,brooklynbridgepark,BklynBrdgPark,dgczIB,40.702274,-73.996696
+bryant-park,Bryant Park,,manhattan,,http://www.bryantpark.org/,bryantparknyc,bryantparknyc,3sTG8A,40.753597,-73.983233
+crotona-park-playground-bronx,"Crotona Park, Bronx","@ Clinton Playground – Crotona South & Clinton Ave, Bronx",bronx,,http://www.nycgovparks.org/parks/crotona-park,,,9EuaMK,40.835055,-73.898259
+crotona-park-amphitheater-bronx,"Crotona Park, Bronx",@ Amphitheater – Crotona Park E & Claremont Pkwy,queens,,http://www.nycgovparks.org/parks/crotona-park,,,9EuaMK,40.837367,-73.894751
+unisphere-flushing-meadows-corona-park-queens,"Flushing Meadows-Corona Park, Queens",@ Unisphere,queens,,http://www.nycgovparks.org/parks/flushing-meadows-corona-park/,,,7PJK3i,40.746377,-73.845077
+111-parking-lot-flushing-meadows-corona-park-queens,"Flushing Meadows-Corona Park, Queens",@ 111th St Parking Lot,queens,,http://www.nycgovparks.org/parks/flushing-meadows-corona-park/,,,7PJK3i,40.748658,-73.852925
+george-harvey-park-queens,"George Harvey Park, Queens","@ Hockey Rink – 20th Ave & Whitestone Expressway, Queens",queens,,http://www.nycgovparks.org/parks/harvey-park,,,aPNZY2,40.784553,-73.823435
+highland-park-queens,"Highland Park, Queens","Elton St & Jamaica Ave, Queens",queens,,http://www.nycgovparks.org/parks/highland-park/,,,cl34Ha,40.684557,-73.886254
+intrepid,Intrepid Museum,"Pier 86, 12th Ave & 46th St",manhattan,,http://www.intrepidmuseum.org,IntrepidMuseum,IntrepidMuseum,642ATp,40.764527,-73.999608
+jane-bailey-memorial-garden-brooklyn,"Jane Bailey Memorial Garden, Brooklyn","327-329 Greene Ave, Brooklyn",brooklyn,,https://www.nyrp.org/green-spaces/garden-details/jane-bailey-memorial-garden,,,9EuaMK,40.687775,-73.958277
+john-golden-park-queens,"John Golden Park, Queens",@ Parking Lot – 215th Pl & 33rd Ave,queens,,http://www.nycgovparks.org/parks/john-golden-park/,,,LoeCjx,40.772171,-73.768795
+maurice-park-queens,"Maurice Park, Queens","opp. Frank Principe Park, Maurice Ave & 54th Ave, Queens",queens,,http://www.nycgovparks.org/parks/frank-principe-park/,,,P6QhkO,40.727465,-73.904783
+owls-head-park-brooklyn,"Owl’s Head Park, Brooklyn","Shore Rd & 68 St & Colonial Rd, Brooklyn",brooklyn,,http://www.nycgovparks.org/parks/owls-head-park/,,,dvVESk,40.640204,-74.032203
+pier-1-riverside-park-south-manhattan,"Pier 1, Riverside Park South","W 70th St, Manhattan",manhattan,,http://www.nycgovparks.org/parks/riverside-park-south/,,,608Fdk,40.779798,-73.989324
+socrates-sculpture-park,Socrates Sculpture Park,"Vernon Blvd & Broadway, Queens",queens,,http://socratessculpturepark.org,SocratesSculpturePark,SocratesPark,4ofgdT,40.768515,-73.936551
+st-james-recreation-center-bronx,St James Recreation Center,"St James Park, 2530 Jerome Ave, Bronx",bronx,,http://www.nycgovparks.org/parks/st-james-park/,,,9ZNb79,40.864503,-73.899000
+summerscreen,"SummerScreen, McCarren Park",,brooklyn,,http://www.summerscreen.org,SummerScreen,summerscreenbk,bfXhSf,40.721344,-73.952636
+target-community-garden-brooklyn,"Target Community Garden, Brooklyn","933 Bedford Ave, Brooklyn",brooklyn,,https://www.nyrp.org/green-spaces/garden-details/target-community-garden-brooklyn,,,cAZDoI,40.692092,-73.955410
+yotel,Yotel,,manhattan,,http://www.yotel.com/en/hotels/yotel-new-york,YOTELHQ,YotelHQ,glbEgd,40.759169,-73.995547
