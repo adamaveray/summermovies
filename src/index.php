@@ -147,6 +147,8 @@ $ratings	= array_keys($ratings);
 						<img src="<?=e($movie->poster);?>" alt="<?=e($movie->title);?>" />
 						-->
 					</figure>
+				<?php } else { ?>
+					<span class="movie__poster">No poster available</span>
 				<?php } ?>
 				<div class="movie__content">
 					<h3 class="movie__title">

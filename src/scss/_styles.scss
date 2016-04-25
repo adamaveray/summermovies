@@ -470,10 +470,16 @@ main {
 					width:		100%;
 					height:		auto;
 				}
-			}
 
-			&--no-poster &__content {
-				margin-left:	$poster-width + $poster-margin;
+				.movie--no-poster & {
+					position:	relative;
+					height:		120px;
+					background:		#eee;
+					background:		linear-gradient(to top left, #eee, #f9f9f9);
+					white-space:	nowrap;
+					overflow:		hidden;
+					text-indent:	110%;
+				}
 			}
 
 			&__content {
