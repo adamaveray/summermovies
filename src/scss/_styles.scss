@@ -1046,7 +1046,7 @@ main {
 						@return -($social-icon-size + $social-icon-buffer) * $index
 					}
 					&--facebook a {		background-position: social-icon-offset(0) 0; }
-					&--facebook a {		background-position: social-icon-offset(1) 0; }
+					&--foursquare a {	background-position: social-icon-offset(1) 0; }
 					&--twitter a {		background-position: social-icon-offset(2) 0; }
 					&--instagram a {	background-position: social-icon-offset(3) 0; }
 				}
