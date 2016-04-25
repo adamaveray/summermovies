@@ -125,6 +125,42 @@
 	function insertBefore(element, target){
 		return target.parentNode.insertBefore(element, target);
 	}
+	var transitionEndEvent;
+	function onTransitionEnd(element, handler){
+		if(!element){
+			return;
+		}
+
+		// Determine supported event
+		if(transitionEndEvent === undefined){
+			transitionEndEvent	= null;	// Prevent repeat testing for unsupported browsers (undefined vs null)
+			var transitions	= {
+				'transition':       'transitionend',
+				'OTransition':      'oTransitionEnd',
+				'MozTransition':    'transitionend',
+				'WebkitTransition': 'webkitTransitionEnd'
+			};
+			for(var t in transitions){ if(!transitions.hasOwnProperty(t)){ continue; }
+				if(element.style[t] !== undefined){
+					transitionEndEvent	= transitions[t];
+					break;
+				}
+			}
+		}
+
+		if(transitionEndEvent){
+			element.addEventListener(transitionEndEvent, handler);
+		} else {
+			// No support - trigger immediately
+			window.setTimeout(function(){
+				handler.call(element);
+			}, 0);
+		}
+
+		window.setTimeout(function(){
+			toggleClass(element, '__active', false);
+		}, 1500);
+	}
 
 	var moviesContainer	= document.getElementById('main'),
 		movieElements	= document.getElementsByClassName('movie'),
@@ -862,10 +898,9 @@
 			marker.detailsPanel	= null;
 
 			toggleClass(element, '__transitioning', true);
-			window.setTimeout(function(){
+			onTransitionEnd(element, function(){
 				toggleClass(element, '__active', false);
-			}, 1500);
-			// TODO: WAIT FOR ACTUAL EVENT
+			});
 		}
 	};
 	Map.prototype.highlightMarker	= function(marker){
