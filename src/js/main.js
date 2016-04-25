@@ -818,6 +818,11 @@
 		this.fitMap();
 
 		this.monitorMovies(venues);
+
+		// Reposition once ready
+		this.Maps.event.addListenerOnce(this.map, 'idle', function(){
+			_this.fitMap();
+		});
 	};
 	Map.prototype.buildMarker		= function(coords, handler, venue){
 		var marker	= new this.Maps.Marker({
@@ -946,7 +951,7 @@
 		});
 		return label;
 	};
-	Map.prototype.getVenuePanel	= function(venue){
+	Map.prototype.getVenuePanel		= function(venue){
 		var element	= venue.element;
 
 		// Load image
@@ -1053,7 +1058,7 @@
 			Maps	= window.google.maps;
 
 		map	= new Map(Maps, element, moviesData);
-		map.show({lat: 40.771133, lng: -73.974187, zoom: 14});
+		map.show({lat: 40.771133, lng: -73.974187, zoom: map.maxZoom});
 
 		// Set icons
 		var pinImages	= document.getElementById('pin-images').innerHTML.split('|'),
