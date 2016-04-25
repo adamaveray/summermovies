@@ -232,6 +232,8 @@
 		venues;
 	var filterListeners	= [];
 	var filterValues	= {};
+	var dates		= {},
+		hasDates	= false;
 
 	(function(){
 		// Load venues data
@@ -302,7 +304,8 @@
 				venueElement	= findOne(detailsBlock, ['.movie__detail--venue', 'a']),
 				dateElement		= findOne(detailsBlock, ['.movie__detail--date', 3]);
 
-			var date	= dateElement ? new Date(dateElement.getAttribute('datetime')) : null;
+			var dateString	= dateElement ? dateElement.getAttribute('datetime') : null,
+				date		= dateElement ? new Date(dateString) : null;
 
 			// Link venue details
 			var venue	= null;
@@ -326,6 +329,14 @@
 			if(venue){
 				venue.movies.push(movieData)
 			}
+			if(!dates[date]){
+				dates[date]	= {
+					date:		date,
+					elements:	[],
+				};
+				hasDates	= true;
+			}
+			dates[date].elements.push(dateElement);
 		}
 
 		function filterData(filters){
@@ -506,6 +517,69 @@
 			applyFilters(filterValues);
 		};
 	}());
+
+	// Weather forecasts
+	var weatherLocationID	= 2459115;	// New York, NY
+	hasDates && window.Weather(weatherLocationID, 'f', function(weather){
+		var formatDate	= function(date){
+			return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+		};
+
+		var forecasts	= {},
+			forecast;
+		for(var i = 0; i < weather.forecast.length; i++){
+			forecast	= weather.forecast[i];
+			var forecastDate	= new Date(forecast.date);
+
+			forecasts[formatDate(forecastDate)]	= forecast;
+		}
+
+		var template;
+		var outputElements	= [];
+		for(var _ in dates){ if(!dates.hasOwnProperty(_)){ continue; }
+			var data	= dates[_],
+				date	= formatDate(data.date);
+			if(!forecasts[date]){
+				continue;
+			}
+
+			forecast	= forecasts[date];
+
+			// Show forecast
+			if(!template){
+				template	= document.getElementById('template-weather').innerHTML;
+			}
+
+			for(i = 0; i < data.elements.length; i++){
+				var element	= data.elements[i],
+					output	= loadTemplate(template, true).firstChild;
+				output.setAttribute('data-conditions', forecast.code);
+				setText(findOne(output, ['.forecast__temperature']), forecast.high+'º');
+				setText(findOne(output, ['.forecast__conditions']), forecast.text);
+				findOne(output, ['.forecast__link']).setAttribute('href', weather.link);
+
+				element.parentNode.appendChild(output);
+
+				toggleClass(output, '__transitioning', true);
+				outputElements.push(output);
+			}
+		}
+
+		if(!outputElements.length){
+			return;
+		}
+
+		// Trigger entrance animations
+		var entranceIndex		= 0,
+			entranceInterval	= window.setInterval(function(){
+				toggleClass(outputElements[entranceIndex], '__transitioning', false);
+
+				entranceIndex++;
+				if(entranceIndex >= outputElements.length){
+					window.clearInterval(entranceInterval);
+				}
+			}, 250);
+	});
 
 	// Map
 	var mapStyles	= (function(){

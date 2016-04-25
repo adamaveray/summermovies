@@ -255,6 +255,14 @@ $ratings	= array_keys($ratings);
 		<button class="search-feedback__reset cta">Reset Filters</button>
 	</div>
 </template>
+<template id="template-weather">
+	<p class="forecast">
+		<a class="forecast__link" target="_blank">
+			<span class="forecast__conditions"></span>
+			<span class="forecast__temperature"></span>
+		</a>
+	</p>
+</template>
 
 <?php
 include($ROOT.'/_inc/layout/footer.php');

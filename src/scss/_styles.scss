@@ -538,13 +538,104 @@ main {
 						vertical-align:	middle;
 					}
 
-					$detail-ratio:	1/3;
+					$detail-ratio:	6/13;
 					&--date {
 						width:	100% * $detail-ratio;
 
 						strong {
 							margin-right:	0.2em;
 							background-position:	50% 0;
+						}
+
+						.forecast {
+							display:	inline-block;
+							margin:		0 0 0 0.2em;
+							padding:	0.25em 0.3em 0.1em 0.3em;
+							background:		$color-red;
+							color:			$color-white;
+							line-height:	1;
+							border-radius:	5em;
+							transition:		opacity 0.3s;
+
+							&.__transitioning {
+								opacity:	0;
+							}
+
+							&__link {
+								display:	block;
+								color:				$color-white;
+								text-decoration:	none;
+							}
+
+							&__conditions {
+								@extend %ir;
+
+								display:	inline-block;
+								position:	relative;
+								top:		-0.05em;
+								width:		20px;
+								height:		22px;
+								margin:		-4px -1px;
+								vertical-align:		middle;
+								background:			transparent url('/img/weather/3200-na.svg') no-repeat 50% 50%;
+								background-size:	20px auto;
+							}
+							$imgs:	"0-tornado.svg",
+									"1-day-sleet-storm.svg",
+									"2-hurricane.svg",
+									"3-lightning.svg",
+									"4-day-lightning.svg",
+									"5-rain-mix.svg",
+									"6-sleet.svg",
+									"7-sleet.svg",
+									"8-sleet.svg",
+									"9-rain.svg",
+									"10-sleet.svg",
+									"11-showers.svg",
+									"12-showers.svg",
+									"13-snow-wind.svg",
+									"14-sleet.svg",
+									"15-snow-wind.svg",
+									"16-snow.svg",
+									"17-hail.svg",
+									"18-sleet.svg",
+									"19-dust.svg",
+									"20-fog.svg",
+									"21-day-haze.svg",
+									"22-smoke.svg",
+									"23-cloudy-gusts.svg",
+									"24-windy.svg",
+									"25-snowflake-cold.svg",
+									"26-cloud.svg",
+									"27-night-alt-cloudy.svg",
+									"28-day-cloudy.svg",
+									"29-night-alt-cloudy.svg",
+									"30-day-cloudy.svg",
+									"31-night-clear.svg",
+									"32-day-sunny.svg",
+									"3200-na.svg",
+									"33-night-alt-partly-cloudy.svg",
+									"34-day-sunny-overcast.svg",
+									"35-hail.svg",
+									"36-hot.svg",
+									"37-day-sleet-storm.svg",
+									"38-storm-showers.svg",
+									"39-storm-showers.svg",
+									"40-showers.svg",
+									"41-snowflake-cold.svg",
+									"42-sleet.svg",
+									"43-snowflake-cold.svg",
+									"44-night-cloudy-high.svg",
+									"45-day-storm-showers.svg",
+									"46-sleet.svg",
+									"47-day-storm-showers.svg";
+
+							@each $img in $imgs {
+								$test: str-slice($img, 0, str-index($img, '-')-1);
+								&[data-conditions="#{$test}"] .forecast__conditions {
+									background-image:	url('/img/weather/#{$img}');
+								}
+							}
 						}
 					}
 					&--venue {
@@ -592,10 +683,17 @@ main {
 				}
 					&__detail {
 						vertical-align:	top;
-						color:			lighten($color-red, 20%);
+						&,
+						> a {
+							color:	lighten($color-red, 20%);
+						}
 
 						strong {
 							opacity:	0.7;
+						}
+
+						&--date .forecast {
+							background:	lighten($color-red, 20%);
 						}
 					}
 			}
