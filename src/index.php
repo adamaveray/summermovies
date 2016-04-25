@@ -1,4 +1,22 @@
 <?php
+$year	= @date('Y');
+$env	= 'production';
+
+$args	= array_slice($argv, 1);
+for($i = 0, $max = count($args); $i < $max; $i += 2){
+	$key	= substr($args[$i], 2);
+	$value	= $args[$i+1];
+
+	switch($key){
+		case 'year':
+			$year	= $value;
+			break;
+		case 'environment':
+			$env	= $value;
+			break;
+	}
+}
+
 $ROOT=__DIR__;
 require_once($ROOT.'/_inc/lib.php');
 
@@ -10,7 +28,7 @@ include($ROOT.'/_inc/layout/header.php');
 
 /** @var Movie[] $movies */
 /** @var Venue[] $venues */
-list($venues, $movies)	= loadData(2015);
+list($venues, $movies)	= loadData($year);
 
 $ratings	= [];
 $boroughs	= [];
