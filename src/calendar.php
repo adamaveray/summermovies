@@ -51,6 +51,7 @@ DTSTART;VALUE=DATE:$start
 DTEND;VALUE=DATE:$end
 LOCATION:$location
 GEO:$venue->lat;$venue->lng
+DESCRIPTION:(via summermovies.nyc)
 END:VEVENT
 ICAL;
 	$output	.= "\n";
