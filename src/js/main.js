@@ -521,6 +521,11 @@
 	// Weather forecasts
 	var weatherLocationID	= 2459115;	// New York, NY
 	hasDates && window.Weather(weatherLocationID, 'f', function(weather){
+		if(!weather){
+			// Failed loading weather
+			return;
+		}
+
 		var formatDate	= function(date){
 			return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
 		};
