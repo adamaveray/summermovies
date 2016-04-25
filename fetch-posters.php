@@ -147,7 +147,12 @@ foreach($data as $rowID => $row){
 		curl_multi_remove_handle($curlPool, $curl);
 
 		list($path, $url)	= getPosterPaths($row);
-		$success	= $response && resizeImage($response, $path, POSTER_WIDTH, null, 70);
+		$dir	= dirname($path);
+
+		$success	= false;
+		if($response && (is_dir($dir) || @mkdir($dir, 0755, true))){
+			$success	= resizeImage($response, $path, POSTER_WIDTH, null, 70);
+		}
 
 		if($success){
 			// Poster loaded
