@@ -37,10 +37,12 @@ function addPosterRequest($row, $url){
 }
 
 function getPosterPaths($row){
+	global $year;
+
 	$posterID	= strtolower($row[COLUMN_title].' '.$row[COLUMN_year]);
 	$posterID	= trim(preg_replace('~[^a-zA-Z0-9]+~', '-', $posterID), '-');
 
-	$url	= OUTPUT_URL.'/'.$posterID.'.jpg';
+	$url	= OUTPUT_URL.'/'.$year.'/'.$posterID.'.jpg';
 	$path	= __DIR__.'/src'.$url;
 
 	return [$path, $url];
