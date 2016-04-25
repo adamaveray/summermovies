@@ -51,6 +51,14 @@ function loadData($year){
 		return new Movie($data);
 	});
 
+	usort($movies, function(Movie $a, Movie $b){
+		if($a->date->format('c') !== $b->date->format('c')){
+			return (($a->date > $b->date) ? 1 : -1);
+		}
+
+		return strcmp($a->title, $b->title);
+	});
+
 	return [$venues, $movies];
 }
 
