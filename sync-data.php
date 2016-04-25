@@ -55,6 +55,7 @@ $data		= [];
 $i			= -1;
 $handle		= fopen(DATA_FILE, 'r');
 $isFirst	= true;
+$headings	= null;
 while(!feof($handle)){
 	$i++;
 	$row	= fgetcsv($handle);
@@ -73,6 +74,10 @@ while(!feof($handle)){
 	addMovieRequest($i, $row[COLUMN_title], $row[COLUMN_year]);
 }
 fclose($handle);
+
+if(!$headings){
+	throw new \UnexpectedValueException('No rows found');
+}
 
 // Execute requests
 do {
