@@ -145,6 +145,9 @@ $ratings	= array_keys($ratings);
 		if(!isset($movie->synopsis)){
 			$movieClasses[]	= 'movie--no-synopsis';
 		}
+		if($movie->isPending){
+			$movieClasses[]	= 'movie--pending';
+		}
 		?>
 		<?php if(!isset($currentMonth) || $currentMonth !== $newMonth){?>
 			<?php if(isset($currentMonth)){?>

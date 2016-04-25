@@ -494,6 +494,11 @@ main {
 				&__name {
 					@extend h2;
 					margin-right:	0.15em;
+
+					.movie--pending & {
+						color:		$color-grey;
+						font-style:	italic;
+					}
 				}
 
 				&__rating {

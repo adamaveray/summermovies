@@ -17,10 +17,18 @@ class Movie extends Model {
 
 	public $cost;
 
+	public $isPending	= false;
+
 	public function __construct(array $values){
 		parent::__construct($values);
 
 		$this->id	= $this->generateID();
+
+		if(substr($this->title, 0, 1) === '(' && substr($this->title, -1) === ')'){
+			// Unconfirmed
+			$this->isPending	= true;
+			$this->title		= substr($this->title, 1, -1);
+		}
 	}
 
 	private function generateID(){
