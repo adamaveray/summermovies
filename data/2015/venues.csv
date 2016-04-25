@@ -1,4 +1,4 @@
-ID,Name,Location,Borough,Image,Website,Facebook,Twitter,Foursquare,Lat,Lng
+id,name,location,borough,image,website,facebook,twitter,foursquare,lat,lng
 death-ave,Chelsea’s Death Ave,Patio Garden at Chelsea’s Death Ave,manhattan,1,http://www.example.com/,pages/Mai-Thai-Restaurant-Alfred-Cove/521542601207300,hellskitschnyc,9V0GU6,40.7465,-74.001374
 103-st-community-garden,103rd St Community Garden,,manhattan,,,,,,40.790982,-73.948714
 72nd-riverside-park,Riverside Park,72nd Track and Lawn in Riverside Park,manhattan,,,,,,40.782011,-73.987298
