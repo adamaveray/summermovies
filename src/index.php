@@ -100,9 +100,14 @@ $ratings	= array_keys($ratings);
 		</ul>
 	</header>
 
-	<?php $currentMonth = null; ?>
+	<?php
+	$currentMonth	= null;
+	$activeVenues	= [];
+	?>
 	<?php foreach($movies as $movie){ ?>
 		<?php
+		$activeVenues[]	= $movie->venue;
+
 		$newMonth 	= $movie->date->format('F');
 		$movieDate	= $movie->date->format('D M j');
 		$movieDateExtra	= $movie->date->format('g:ia');
@@ -195,7 +200,7 @@ $ratings	= array_keys($ratings);
 	</div>
 
 	<ul class="venues">
-		<?php foreach($venues as $venue){ ?>
+		<?php foreach($activeVenues as $venue){ ?>
 			<li class="venue-details"
 					id="venue-<?=e($venue->id);?>"
 					data-coords="<?=e($venue->coords);?>"
