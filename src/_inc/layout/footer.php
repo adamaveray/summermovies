@@ -21,6 +21,7 @@
 	<?=(isset($foot) ? $foot : '');?>
 	<?php if(ANALYTICS_ID !== ''){ ?>
     <script>window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;ga('create','<?=e(ANALYTICS_ID);?>','auto');ga('send','pageview')</script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 	<?php } ?>
 </body>
 </html>
