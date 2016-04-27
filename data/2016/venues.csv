@@ -2,7 +2,7 @@ id,name,location,borough,image,website,facebook,twitter,foursquare,lat,lng
 brooklyn-bridge-park,Brooklyn Bridge Park,Pier 1,brooklyn,,http://www.brooklynbridgepark.org,brooklynbridgepark,BklynBrdgPark,dgczIB,40.702274,-73.996696
 bryant-park,Bryant Park,,manhattan,,http://www.bryantpark.org/,bryantparknyc,bryantparknyc,3sTG8A,40.753597,-73.983233
 crotona-park-playground-bronx,"Crotona Park, Bronx","@ Clinton Playground – Crotona South & Clinton Ave, Bronx",bronx,,http://www.nycgovparks.org/parks/crotona-park,,,9EuaMK,40.835055,-73.898259
-crotona-park-amphitheater-bronx,"Crotona Park, Bronx",@ Amphitheater – Crotona Park E & Claremont Pkwy,queens,,http://www.nycgovparks.org/parks/crotona-park,,,9EuaMK,40.837367,-73.894751
+crotona-park-amphitheater-bronx,"Crotona Park, Bronx",@ Amphitheater – Crotona Park E & Claremont Pkwy,bronx,,http://www.nycgovparks.org/parks/crotona-park,,,9EuaMK,40.837367,-73.894751
 unisphere-flushing-meadows-corona-park-queens,"Flushing Meadows-Corona Park, Queens",@ Unisphere,queens,,http://www.nycgovparks.org/parks/flushing-meadows-corona-park/,,,7PJK3i,40.746377,-73.845077
 111-parking-lot-flushing-meadows-corona-park-queens,"Flushing Meadows-Corona Park, Queens",@ 111th St Parking Lot,queens,,http://www.nycgovparks.org/parks/flushing-meadows-corona-park/,,,7PJK3i,40.748658,-73.852925
 george-harvey-park-queens,"George Harvey Park, Queens","@ Hockey Rink – 20th Ave & Whitestone Expressway, Queens",queens,,http://www.nycgovparks.org/parks/harvey-park,,,aPNZY2,40.784553,-73.823435
