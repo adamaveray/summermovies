@@ -4,7 +4,13 @@ require_once(__DIR__.'/config.php');
 require_once(__DIR__.'/models/Venue.php');
 require_once(__DIR__.'/models/Movie.php');
 
-function loadData($year){
+function loadData($year, $useCache = true){
+	// Try cache
+	$cachePath	= DATA_DIR.'/'.$year.'/compiled.raw';
+	if($useCache && file_exists($cachePath)){
+		return unserialize(file_get_contents($cachePath));
+	}
+
 	/** @var Venue[] $venues */
 	$venues	= loadCSV(DATA_DIR.'/'.$year.'/venues.csv', [
 		'id'		=> [],
