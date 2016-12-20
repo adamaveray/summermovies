@@ -18,12 +18,15 @@ for($i = 1, $length = count($argv); $i < $length; $i++){
 	}
 	$environment	= $argv[$i+1];
 }
+
+define('IS_CLI', (PHP_SAPI === 'cli'));
 define('IS_DEV', isset($environment) && $environment === 'development');
-define('IS_DEBUG', IS_DEV || (php_sapi_name() === 'cli'));
+define('IS_DEBUG', IS_DEV || IS_CLI);
+define('ENVIRONMENT', $environment);
 define('SKIP_CACHE', IS_DEV);
 unset($environment, $length, $i);
 
-if(php_sapi_name() === 'cli'){
+if(IS_CLI){
 	// Running as script - substitute missing request data
 	$_SERVER	+= [
 		'HTTP_HOST'		=> 'localhost',
