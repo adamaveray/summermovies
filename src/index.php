@@ -32,6 +32,8 @@ try {
 
 	include($ROOT.'/404.php');
 	exit;
+	$movies	= [];
+	$venues	= [];
 }
 
 $ratings	= [];
@@ -45,6 +47,12 @@ foreach($movies as $movie){
 	}
 }
 $ratings	= array_keys($ratings);
+
+// Remove past movies
+$now	= new \DateTime('now');
+$movies	= array_filter($movies, function(Movie $movie) use($now){
+	return ($movie->date > $now);
+});
 ?>
 
 <header role="banner">
@@ -60,6 +68,7 @@ $ratings	= array_keys($ratings);
 </div>
 
 <main id="main">
+	<?php if($movies){ ?>
 	<header class="search-filters">
 		<ul class="search-filters__items">
 			<li class="search-filter search-filter--filter search-filter--checkbox search-filter--free">
@@ -119,6 +128,7 @@ $ratings	= array_keys($ratings);
 			</li>
 		</ul>
 	</header>
+	<?php } ?>
 
 	<?php
 	$currentMonth	= null;
