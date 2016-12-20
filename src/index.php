@@ -23,6 +23,7 @@ include($ROOT.'/_inc/layout/header.php');
 /** @var Venue[] $venues */
 try {
 	list($venues, $movies)	= loadData($year);
+	$hasMovies	= count($movies) > 0;
 } catch(\OutOfBoundsException $e){
 	// Unknown year
 	if(IS_CLI){
@@ -30,10 +31,9 @@ try {
 		throw $e;
 	}
 
-	include($ROOT.'/404.php');
-	exit;
 	$movies	= [];
 	$venues	= [];
+	$hasMovies	= false;
 }
 
 $ratings	= [];
@@ -128,6 +128,17 @@ $movies	= array_filter($movies, function(Movie $movie) use($now){
 			</li>
 		</ul>
 	</header>
+	<?php } else { ?>
+		<header class="no-results no-results--<?=($hasMovies ? 'past' : 'future');?>">
+			<h2 class="no-results__title">That's A Wrap!</h2>
+			<p class="no-results__message">
+				<?php if($hasMovies){ ?>
+					All screenings for the year are over.
+				<?php } else { ?>
+					This year's movies haven't been announced yet.
+				<?php } ?>
+			</p>
+		</header>
 	<?php } ?>
 
 	<?php

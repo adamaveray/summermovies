@@ -796,6 +796,42 @@ main {
 			}
 		}
 
+	// No Results Feedback
+	.no-results {
+		$size:		250px;
+		width:		$size;
+		height:		$size;
+		position:	relative;
+		margin:		1.2em auto 0 auto;
+		text-align:		center;
+
+		&__title {
+			@include image-replaced('/img/movie/end-message.png', $size, $size) {
+				background-size:	$size $size;
+			}
+
+			@include media-hidpi {
+				background-image:	url('/img/movie/end-message@2x.png');
+			}
+		}
+
+		&__message {
+			position:	absolute;
+			margin:		0;
+			bottom:		1.5em;
+			left:		0;
+			right:		0;
+			z-index:	2;
+			color:		#000;
+
+			.no-results--past & {
+				$margin:	2em;
+				padding-left:	$margin;
+				padding-right:	$margin;
+			}
+		}
+	}
+
 #map {
 	position:	relative;
 	width:		100%;
