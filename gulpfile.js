@@ -172,16 +172,17 @@ var htmlminOptions	= {
 registerTask('html', src('index.php'), function(source){
 	var streams	= merge();
 
-	var max	= years.length;
+	// Static past years
+	var max	= years.length,
+		pipe,
+		dataSource	= src('data.php');
 	for(var i = 0; i < max; i++){
-		var pipe	= gulp
+		pipe	= gulp
 			.src(source)
 			.pipe(exec('php -f "<%= file.path %>" -- --year <%= options.customYear %> --environment "<%= options.customEnv %>"', {pipeStdout: true, customYear: years[i], customEnv: environment}))
 			.pipe(rename(function(path){
 				path.extname	= '.html';
-				if(this != max-1){
-					path.dirname	+= '/'+years[this];
-				}
+				path.dirname	+= '/'+years[this];
 			}.bind(i)))
 			.pipe(isProduction
 					? htmlmin(htmlminOptions)
@@ -189,8 +190,28 @@ registerTask('html', src('index.php'), function(source){
 			.pipe(htmlInject())
 			.pipe(dest(''));
 
+		pipe	= gulp
+			.src(dataSource)
+			.pipe(exec('php -f "<%= file.path %>" -- --year <%= options.customYear %> --environment "<%= options.customEnv %>"', {pipeStdout: true, customYear: years[i], customEnv: environment}))
+			.pipe(rename({
+				extname:	'.raw',
+				basename:	'compiled'
+			}))
+			.pipe(isProduction
+					? htmlmin(htmlminOptions)
+					: noop())
+			.pipe(htmlInject())
+			.pipe(dest('../data/'+years[i]+'/'));
+
 		streams.add(pipe);
 	}
+
+	// Current year - dynamically generated
+	pipe	= gulp
+		.src(source)
+		.pipe(dest(''));
+
+	streams.add(pipe);
 
 	return streams;
 });
@@ -215,10 +236,6 @@ registerTask('calendar', src('calendar.php'), function(source){
 	// Check for environment flag
 	return gulp
 			.src(source)
-			.pipe(exec('php -f "<%= file.path %>" -- --environment "<%= options.customEnv %>"', {pipeStdout: true, customEnv: environment}))
-			.pipe(rename({
-				extname: '.ics'
-			}))
 			.pipe(dest(''));
 });
 
