@@ -222,8 +222,12 @@
 				elements[i].className	= classes+' movies--'+state;
 			}
 		};
-		document.getElementById('search-filter-size-toggle-full').addEventListener('change', toggle);
-		document.getElementById('search-filter-size-toggle-compact').addEventListener('change', toggle);
+
+		var e;
+		e = document.getElementById('search-filter-size-toggle-full');
+		e && e.addEventListener('change', toggle);
+		e = document.getElementById('search-filter-size-toggle-compact');
+		e && e.addEventListener('change', toggle);
 	}());
 
 	// Filtering logic
@@ -467,6 +471,10 @@
 		};
 		var filterElements	= find(document, ['.search-filter--filter']),
 			filterInputs	= [];
+		if(!filterElements){
+			return;
+		}
+
 		for(var i = 0; i < filterElements.length; i++){
 			var filterContainer	= filterElements[i],
 				filter			= findOne(filterContainer, ['input']) || findOne(filterContainer, ['select']);
