@@ -3,7 +3,7 @@ header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found', null, 404);	// Ensure 404 e
 
 ob_start();	// Capture for IE (see bottom)
 
-$ROOT=__DIR__;
+$ROOT=__DIR__.'/../src';
 require_once($ROOT.'/_inc/lib.php');
 
 $pageTitle	= 'Page Not Found';

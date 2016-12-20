@@ -3,7 +3,7 @@ header($_SERVER['SERVER_PROTOCOL'].' 500 Server Error', null, 404);	// Ensure 50
 
 ob_start();	// Capture for IE (see bottom)
 
-$ROOT=__DIR__;
+$ROOT=__DIR__.'/../src';
 require_once($ROOT.'/_inc/lib.php');
 
 $pageTitle	= 'Error';

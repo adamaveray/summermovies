@@ -1,5 +1,5 @@
 <?php
-$ROOT=__DIR__;
+$ROOT=__DIR__.'/../src';
 require_once($ROOT.'/_inc/lib.php');
 
 $year	= @date('Y');
