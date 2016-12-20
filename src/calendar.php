@@ -13,6 +13,9 @@ if(IS_CLI){
 	}
 }
 
+header('Content-Type: text/calendar; charset=utf-8');
+header('Content-Disposition: attachment; filename="summer-movies.ics"');
+
 $lineLength	= 75;
 $lineBreak	= "\n";
 $lineSplit	= $lineBreak."\t";
