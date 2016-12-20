@@ -42,6 +42,12 @@ try {
 	exit;
 }
 
+// Remove past movies
+$now	= new \DateTime('now');
+$movies	= array_filter($movies, function(Movie $movie) use($now){
+	return ($movie->date > $now);
+});
+
 $output = <<<'ICAL'
 BEGIN:VCALENDAR
 METHOD:PUBLISH
