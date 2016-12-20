@@ -13,9 +13,6 @@ if(IS_CLI){
 	}
 }
 
-header('Content-Type: text/calendar; charset=utf-8');
-header('Content-Disposition: attachment; filename="summer-movies.ics"');
-
 $lineLength	= 75;
 $lineBreak	= "\n";
 $lineSplit	= $lineBreak."\t";
@@ -95,4 +92,8 @@ $output	= preg_replace_callback('/(?<=\n)([^\n]{'.($lineLength+1).',})(?=\n)/', 
 }, $output);
 */
 
+if(!IS_CLI){
+	header('Content-Type: text/calendar; charset=utf-8');
+	header('Content-Disposition: attachment; filename="summer-movies.ics"');
+}
 echo $output;
