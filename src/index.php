@@ -21,7 +21,18 @@ include($ROOT.'/_inc/layout/header.php');
 
 /** @var Movie[] $movies */
 /** @var Venue[] $venues */
-list($venues, $movies)	= loadData($year);
+try {
+	list($venues, $movies)	= loadData($year);
+} catch(\OutOfBoundsException $e){
+	// Unknown year
+	if(IS_CLI){
+		// Output in CLI
+		throw $e;
+	}
+
+	include($ROOT.'/404.php');
+	exit;
+}
 
 $ratings	= [];
 $boroughs	= [];

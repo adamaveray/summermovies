@@ -6,6 +6,10 @@ require_once(__DIR__.'/models/Movie.php');
 
 function loadData($year, $useCache = true){
 	$dir	= DATA_DIR.'/'.$year;
+	if(!is_dir($dir)){
+		// Year not available
+		throw new \OutOfBoundsException('Undefined year');
+	}
 
 	// Try cache
 	$cachePath	= $dir.'/compiled.raw';
