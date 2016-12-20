@@ -5,14 +5,16 @@ require_once(__DIR__.'/models/Venue.php');
 require_once(__DIR__.'/models/Movie.php');
 
 function loadData($year, $useCache = true){
+	$dir	= DATA_DIR.'/'.$year;
+
 	// Try cache
-	$cachePath	= DATA_DIR.'/'.$year.'/compiled.raw';
+	$cachePath	= $dir.'/compiled.raw';
 	if($useCache && file_exists($cachePath)){
 		return unserialize(file_get_contents($cachePath));
 	}
 
 	/** @var Venue[] $venues */
-	$venues	= loadCSV(DATA_DIR.'/'.$year.'/venues.csv', [
+	$venues	= loadCSV($dir.'/venues.csv', [
 		'id'		=> [],
 		'name'		=> [],
 		'location'	=> ['optional' => true],
@@ -34,7 +36,7 @@ function loadData($year, $useCache = true){
 	$venues	= $venuesLookup;
 
 	/** @var Movie[] $movies */
-	$movies	= loadCSV(DATA_DIR.'/'.$year.'/movies.csv', [
+	$movies	= loadCSV($dir.'/movies.csv', [
 		'date'			=> ['type' => 'date'],
 		'venue'			=> [],
 		'title'			=> [],
