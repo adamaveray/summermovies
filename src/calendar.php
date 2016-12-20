@@ -2,6 +2,17 @@
 $ROOT=__DIR__;
 require_once($ROOT.'/_inc/lib.php');
 
+$year	= @date('Y');
+if(IS_CLI){
+	$args	= array_slice($argv, 1);
+	for($i = 0, $max = count($args); $i < $max; $i += 2){
+		$key	= substr($args[$i], 2);
+		if($key === 'year'){
+			$year	= $args[$i+1];
+		}
+	}
+}
+
 $lineLength	= 75;
 $lineBreak	= "\n";
 $lineSplit	= $lineBreak."\t";
@@ -18,7 +29,7 @@ function formatICalDate(\DateTimeInterface $date, $time = true){
 
 /** @var Movie[] $movies */
 /** @var Venue[] $venues */
-list($venues, $movies)	= loadData(2015);
+list($venues, $movies)	= loadData($year);
 
 $output = <<<'ICAL'
 BEGIN:VCALENDAR
