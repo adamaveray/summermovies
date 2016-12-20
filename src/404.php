@@ -1,5 +1,5 @@
 <?php
-header('HTTP/1.0 404 Not Found', null, 404);	// Ensure 404 error sent
+header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found', null, 404);	// Ensure 404 error sent
 
 ob_start();	// Capture for IE (see bottom)
 
