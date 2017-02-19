@@ -1,5 +1,6 @@
 <?php
-header($_SERVER['SERVER_PROTOCOL'].' 500 Server Error', null, 404);	// Ensure 500 error sent
+$protocol	= (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1');
+header($protocol.' 500 Server Error', null, 404);	// Ensure 500 error sent
 
 ob_start();	// Capture for IE (see bottom)
 
