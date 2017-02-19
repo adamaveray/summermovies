@@ -38,8 +38,9 @@ try {
 		throw $e;
 	}
 
-	include($ROOT.'/404.php');
-	exit;
+	// Output empty calendar
+	$venues	= [];
+	$movies	= [];
 }
 
 // Remove past movies
