@@ -200,9 +200,6 @@ registerTask('html', src('index.php'), function(source){
 				extname:	'.raw',
 				basename:	'compiled'
 			}))
-			.pipe(isProduction
-					? htmlmin(htmlminOptions)
-					: noop())
 			.pipe(htmlInject())
 			.pipe(dest('../data/'+years[i]+'/'));
 
