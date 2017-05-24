@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__.'/../lib.php');
+$siteTitle	= 'Summer Movies NYC';
 ?><!doctype html>
 <!--[if lt IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie10 lt-ie9 lt-ie8"><![endif]-->
@@ -10,7 +11,7 @@ require_once(__DIR__.'/../lib.php');
 	<meta charset="utf-8" />
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
 	
-	<title>Summer Movies NYC</title>
+	<title><?=e(isset($pageTitle) ? $pageTitle.' – '.$siteTitle : $siteTitle);?></title>
 	<?php if(isset($pageDescription)){ ?>
 		<meta name="description" content="<?=e($pageDescription)?>" />
 	<?php } ?>
