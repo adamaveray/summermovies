@@ -162,7 +162,8 @@ registerTask('styles', src('scss/**/*.scss'), function(source){
 var htmlInject	= noop;	// Noop
 var htmlminOptions	= {
 	removeComments:				true,
-	//collapseWhitespace:			true,
+	collapseWhitespace:			true,
+	conservativeCollapse:		true,
 	removeTagWhitespace:		true,
 	removeRedundantAttributes:	true,
 	removeEmptyAttributes:		true,
