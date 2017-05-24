@@ -159,6 +159,30 @@ registerTask('styles', src('scss/**/*.scss'), function(source){
 	return stream;
 }, isProduction ? ['images'] : []);
 
+registerTask('data', src('data.php'), function(source){
+	const MAX_HTML_FILE_SIZE	= 100 * 1024 * 1024;
+
+	var streams	= merge();
+
+	// Static past years
+	var max	= years.length,
+		pipe;
+	for(var i = 0; i < max; i++){
+		pipe	= gulp
+			.src(source)
+			.pipe(exec('php -f "<%= file.path %>" -- --year <%= options.customYear %> --environment "<%= options.customEnv %>"', {pipeStdout: true, customYear: years[i], customEnv: environment, maxBuffer: MAX_HTML_FILE_SIZE}))
+			.pipe(rename({
+				extname:	'.raw',
+				basename:	'compiled'
+			}))
+			.pipe(dest('../data/'+years[i]+'/'));
+
+		streams.add(pipe);
+	}
+
+	return streams;
+});
+
 var htmlInject	= noop;	// Noop
 var htmlminOptions	= {
 	removeComments:				true,
@@ -177,8 +201,7 @@ registerTask('html', src('index.php'), function(source){
 
 	// Static past years
 	var max	= years.length,
-		pipe,
-		dataSource	= src('data.php');
+		pipe;
 	for(var i = 0; i < max; i++){
 		pipe	= gulp
 			.src(source)
@@ -193,16 +216,6 @@ registerTask('html', src('index.php'), function(source){
 			.pipe(htmlInject())
 			.pipe(dest(''));
 
-		pipe	= gulp
-			.src(dataSource)
-			.pipe(exec('php -f "<%= file.path %>" -- --year <%= options.customYear %> --environment "<%= options.customEnv %>"', {pipeStdout: true, customYear: years[i], customEnv: environment, maxBuffer: MAX_HTML_FILE_SIZE}))
-			.pipe(rename({
-				extname:	'.raw',
-				basename:	'compiled'
-			}))
-			.pipe(htmlInject())
-			.pipe(dest('../data/'+years[i]+'/'));
-
 		streams.add(pipe);
 	}
 
@@ -214,7 +227,7 @@ registerTask('html', src('index.php'), function(source){
 	streams.add(pipe);
 
 	return streams;
-});
+}, ['data']);
 registerTask('html:supporting', src('{404,500}.php'), function(source){
 	// Check for environment flag
 	return gulp
