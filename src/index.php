@@ -2,17 +2,22 @@
 $ROOT=__DIR__.'/../src';
 require_once($ROOT.'/_inc/lib.php');
 
-$year	= @date('Y');
+$year		= @date('Y');
+$isArchive	= false;
 if(IS_CLI){
 	$args	= array_slice($argv, 1);
 	for($i = 0, $max = count($args); $i < $max; $i += 2){
 		$key	= substr($args[$i], 2);
 		if($key === 'year'){
-			$year	= $args[$i+1];
+			$year		= $args[$i+1];
+			$isArchive	= true;
 		}
 	}
 }
 
+if($isArchive){
+	$pageTitle	= $year.' Screenings';
+}
 $pageDescription	= 'Summertime means outdoor movies time. See what movies are screening this summer across New York.';
 
 $scripts	= '<script src="https://maps.googleapis.com/maps/api/js?key='.e(MAPS_KEY).'&callback=googleMapsReady" async defer></script>';
