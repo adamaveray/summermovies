@@ -17,6 +17,8 @@ if(IS_CLI){
 
 if($isArchive){
 	$pageTitle	= $year.' Screenings';
+} else {
+	$pageTitle	= 'Summer Movies NYC – '.$year.' Outdoor Movie Screenings Across New York City';
 }
 $pageDescription	= 'Summertime means outdoor movies time. See what movies are screening this summer across New York.';
 
