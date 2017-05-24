@@ -1,0 +1,62 @@
+id,name,location,borough,image,website,facebook,twitter,foursquare,lat,lng
+socrates-sculpture-park-queens,Socrates Sculpture Park,"Vernon Blvd & Broadway, Queens",queens,,http://socratessculpturepark.org,SocratesSculpturePark,SocratesPark,4ofgdT,40.768515,-73.936551
+summerscreen,"SummerScreen, McCarren Park",,brooklyn,,http://www.summerscreen.org,SummerScreen,summerscreenbk,bfXhSf,40.721344,-73.952636
+yotel-manhattan,Yotel,,manhattan,,http://www.yotel.com/en/hotels/yotel-new-york,YOTELHQ,YotelHQ,glbEgd,40.759169,-73.995547
+intrepid,Intrepid Museum,"Pier 86, 12th Ave & 46th St",manhattan,,http://www.intrepidmuseum.org,IntrepidMuseum,IntrepidMuseum,642ATp,40.764527,-73.999608
+unisphere-flushing-meadows-corona-park-queens,"Flushing Meadows-Corona Park, Queens",@ Unisphere,queens,,http://www.nycgovparks.org/parks/flushing-meadows-corona-park/,,,7PJK3i,40.746377,-73.845077
+brooklyn-bridge-park,Brooklyn Bridge Park,Pier 1,brooklyn,,http://www.brooklynbridgepark.org,brooklynbridgepark,BklynBrdgPark,dgczIB,40.702274,-73.996696
+bryant-park,Bryant Park,,manhattan,,http://www.bryantpark.org/,bryantparknyc,bryantparknyc,3sTG8A,40.753597,-73.983233
+bronx-terminal-market,Bronx Terminal Market,,bronx,,http://www.bronxterminalmarket.com/,BronxTerminalMarket,shopbtm,beIp39,40.823236983329,-73.929836764036
+house-of-vans-brooklyn,House of Vans,,brooklyn,,http://www.vans.com/house-of-vans.html,,,9FTPWc,40.72574133,-73.957748
+industry-city-brooklyn,Industry City,,brooklyn,,https://industrycity.com,IndustryCityBK,IndustryCity,q4wp58,40.6562371431072,-74.0077686201505
+metrotech-commons-brooklyn,MetroTech Commons,,brooklyn,,,,,a0T1b1,40.6939150835141,-73.9856672286987
+new-design-school-manhattan,New Design High School,,manhattan,,http://www.newdesignhigh.com/,,,b2igOY,40.7174129357768,-73.9893646538258
+jcc-manhattan-manhattan,JCC Manhattan,,manhattan,,http://www.jccmanhattan.org/,jccinmanhattan,JCCManhattan,5SqOaJ,40.7809941073247,-73.9800501212087
+officeops-brooklyn,OfficeOps,,brooklyn,,http://www.officeops.org,OfficeOpsInc,,cOcBEB,40.7052375428977,-73.9303493499756
+the-old-american-can-factory-brooklyn,The Old American Can Factory,,brooklyn,,,pages/The-Old-American-Can-Factory/148213185207557,,10h7Yz,40.6747161969074,-73.9878094090796
+the-william-vale-brooklyn,The William Vale Hotel,,brooklyn,,https://www.thewilliamvale.com/,thewilliamvale,,1VGDtpu,40.722493999551,-73.9567761200141
+cedar-hill-central-park,"Cedar Hill, Central Park",,manhattan,,http://www.centralparknyc.org/things-to-see-and-do/attractions/cedar-hill.html,centralparknyc,centralparknyc,7NkN36,40.7771942363583,"-73.96558284759521"""
+coney-island-beach,Coney Island Beach,,brooklyn,,https://www.nycgovparks.org/parks/coney-island-beach-and-boardwalk/,nycparks,nycparks,70HQMX,40.5729572680988,-73.9809894561767
+broad-channel-park-queens,Broad Channel Park,,queens,,https://www.nycgovparks.org/parks/broad-channel-park,nycparks,nycparks,MmltcY,40.6009201354308,"-73.82012128829956"" = $1"
+brookville-park-queens,Brookville Park,,queens,,https://www.nycgovparks.org/parks/brookville-park,nycparks,nycparks,ckiKPy,40.6631387205106,-73.7416919429764
+bulova-park-queens,Bulova Park,,queens,,https://www.nycgovparks.org/parks/bulova-park,nycparks,nycparks,9Chvp4,40.7626504959576,-73.8921222760601
+colden-playground-queens,Colden Playground,,queens,,https://www.nycgovparks.org/parks/colden-playground,nycparks,nycparks,aNSNBh,40.7702355254989,-73.8269760504703
+columbus-park-manhattan,Columbus Park,,manhattan,,https://www.nycgovparks.org/parks/columbus-park-m015,nycparks,nycparks,7wV9RC,40.7156029609361,-73.9998838898996
+concrete-plant-park-bronx,Concrete Plant Park,,bronx,,https://www.nycgovparks.org/parks/concreteplantpark,nycparks,nycparks,aI1xBm,40.8254197943914,-73.8851594924927
+corporal-john-a-seravalli-playground-manhattan,Corporal John A. Seravalli Playground,,manhattan,,https://www.nycgovparks.org/parks/corporal-john-a-seravalli-playground,nycparks,nycparks,dzGb9J,40.7390958237989,-74.0048718452454
+cpl-thompson-park-staten-island,CPL. Thompson Park,,staten-island,,https://www.nycgovparks.org/parks/corporal-thompson-park,nycparks,nycparks,aYEfKs,40.6371817699938,-74.1178911056781
+crocheron-park-queens,Crocheron Park,,queens,,https://www.nycgovparks.org/parks/crocheron-park,nycparks,nycparks,97G4se,40.7722928144189,-73.7691683752091
+electric-playground-queens,Electric Playground,,queens,,https://www.nycgovparks.org/parks/electric-playground,nycparks,nycparks,I9R2qA,40.7354923912357,-73.8070155458945
+faber-park-staten-island,Faber Park,,staten-island,,https://www.nycgovparks.org/parks/faber-pool-and-park,nycparks,nycparks,bmL9MB,40.6404732368824,-74.135800864496
+ferry-point-park-bronx,Ferry Point Park,,bronx,,https://www.nycgovparks.org/parks/ferry-point-park,nycparks,nycparks,bP2Ybi,40.8099115228134,-73.8385534286499
+forest-park-queens,Forest Park,,queens,,https://www.nycgovparks.org/parks/forest-park,nycparks,nycparks,53hrtV,40.7035783373076,-73.8457202911377
+frederick-b-judge-playground-queens,Frederick B. Judge Playground,,queens,,https://www.nycgovparks.org/parks/frederick-b-judge-playground,nycparks,nycparks,,40.6834879,-73.808185
+gorman-playground-queens,Gorman Playground,,queens,,https://www.nycgovparks.org/parks/gorman-playground,nycparks,nycparks,aX4kNk,40.762085264611,-73.8841581841488
+herbert-von-king-park-brooklyn,Herbert Von King Park,,brooklyn,,https://www.nycgovparks.org/parks/herbert-von-king-park,nycparks,nycparks,djafQ0,40.6895140968651,-73.9465069770813
+highland-park-queens,Highland Park,,queens,,https://www.nycgovparks.org/parks/highland-park,nycparks,nycparks,cl34Ha,40.6854219760505,-73.8860177993774
+jackie-robinson-park-manhattan,Jackie Robinson Park,,manhattan,,https://www.nycgovparks.org/parks/jackie-robinson-park_manhattan,nycparks,nycparks,q4wp58,40.6562371431072,-74.0077686201505
+john-jay-park-manhattan,John Jay Park,,manhattan,,https://www.nycgovparks.org/parks/john-jay-park-and-pool,nycparks,nycparks,bU08ii,40.7691043706977,-73.9497560611004
+kissena-corridor-park-queens,Kissena Corridor Park,,queens,,https://www.nycgovparks.org/parks/kissena-corridor-park,nycparks,nycparks,d3VQuo,40.7477154187956,-73.8088766965542
+macneil-park-queens,Hermon MacNeil Park,,queens,,https://www.nycgovparks.org/parks/macneil-park,nycparks,nycparks,9rIYXv,40.7908777222299,-73.851322267445
+ocean-breeze-park-staten-island,Ocean Breeze Park,,staten-island,,https://www.nycgovparks.org/parks/ocean-breeze-park,nycparks,nycparks,dqReQg,40.5841047074639,-74.0731287002563
+paul-raimonda-playground-queens,Paul Raimonda Playground,,queens,,https://www.nycgovparks.org/parks/paul-raimonda-playground,nycparks,nycparks,zBw1Lk,40.7617977708064,-73.9071251231423
+pelham-bay-park-bronx,Pelham Bay Park,,bronx,,https://www.nycgovparks.org/parks/pelham-bay-park,nycparks,nycparks,dnlDGX,40.8546564171243,-73.8157653808594
+playground-89-manhattan,Playground 89,,manhattan,,https://www.nycgovparks.org/parks/playground-eighty-nine-lxxxix/history,nycparks,nycparks,d9Awd6,40.7888236869861,-73.9718485807733
+rainey-park-bronx,Rainey Park,,bronx,,https://www.nycgovparks.org/parks/rainey-park,nycparks,nycparks,pfQ145,40.818583610525,-73.8974332809448
+randalls-island-park-manhattan,Randall’s Island Park,,manhattan,,https://www.nycgovparks.org/parks/randalls-island,nycparks,nycparks,14lMfOF,40.7940909753864,-73.9180541038513
+recreation-center-54-manhattan,Recreation Center 54,,manhattan,,https://www.nycgovparks.org/parks/recreation-center-54,nycparks,nycparks,5TxCzU,40.7566534849174,-73.9650643973489
+riverside-park-manhattan,Riverside Park,,manhattan,,https://www.nycgovparks.org/parks/riverside-park,nycparks,nycparks,hcKwL,40.8068094334391,-73.9686512947083
+riverside-park-south-manhattan,Riverside Park South,,manhattan,,https://www.nycgovparks.org/parks/riversideparksouth,nycparks,nycparks,608Fdk,40.7783235274796,-73.9891111850739
+rochdale-park-queens,Rochdale Park,,queens,,https://www.nycgovparks.org/parks/rochdale-park,nycparks,nycparks,PmxZOJ,40.6749098501149,-73.7742984294891
+rockaway-beach-queens,Rockaway Beach,,queens,,https://www.nycgovparks.org/parks/rockaway-beach-and-boardwalk/,nycparks,nycparks,5JB2BQ,40.5831600838963,-73.8167232077641
+sara-d-roosevelt-park-manhattan,Sara D. Roosevelt Park,,manhattan,,https://www.nycgovparks.org/parks/sara-d-roosevelt-park,nycparks,nycparks,5hFzow,40.7197241762775,-73.9923890782788
+seton-falls-park-bronx,Seton Falls Park,,bronx,,https://www.nycgovparks.org/parks/seton-falls-park,nycparks,nycparks,pcZZvM,40.8884138255166,-73.8401862128973
+sol-bloom-playground-manhattan,Sol Bloom Playground,,manhattan,,https://www.nycgovparks.org/parks/sol-bloom-playground,nycparks,nycparks,uOie2o,40.7896796365711,-73.9686287062438
+st-catherines-park-manhattan,St. Catherine’s Park,,manhattan,,https://www.nycgovparks.org/parks/st-catherines-park,nycparks,nycparks,ckNHfz,40.765010483126,-73.9584213495255
+st-james-park-bronx,St. James Park,,bronx,,https://www.nycgovparks.org/parks/st-james-park,nycparks,nycparks,9kqJq8,40.8653462148464,-73.8983635545996
+tremont-park-bronx,Tremont Park,,bronx,,https://www.nycgovparks.org/parks/tremont-park,nycparks,nycparks,AApQWN,40.8451449724449,-73.8954162597656
+van-cortlandt-park-bronx,Van Cortlandt Park,,bronx,,https://www.nycgovparks.org/parks/VanCortlandtPark,nycparks,nycparks,DuY5J,40.8906122660476,-73.8928413391113
+westbourne-playground-queens,Westbourne Playground,,queens,,https://www.nycgovparks.org/parks/westbourne-playground,nycparks,nycparks,llFO5R,40.6084451766701,-73.7644800659941
+willowbrook-park-staten-island,Willowbrook Park,,staten-island,,https://www.nycgovparks.org/parks/willowbrook-park,nycparks,nycparks,9hjcMa,40.604354109978,-74.1577627774815
+woodtree-playground-queens,Woodtree Playground,,queens,,https://www.nycgovparks.org/parks/woodtree-playground,nycparks,nycparks,9vK34y,40.7773448500533,-73.9026352990444
+wright-brothers-playground-manhattan,Wright Brothers Playground,,manhattan,,https://www.nycgovparks.org/parks/wright-brothers-playground,nycparks,nycparks,db3dLO,40.835957,-73.94454
