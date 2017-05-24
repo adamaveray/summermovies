@@ -8,6 +8,7 @@ $year	= $argv[1];
 
 define('DATA_FILE', __DIR__.'/data/'.$year.'/movies.csv');
 define('API_URL', 'http://www.omdbapi.com/');
+define('API_KEY', trim(file_get_contents(__DIR__.'/data/omdb-api-key.txt')));
 
 define('COLUMN_date', 0);
 define('COLUMN_venue', 1);
@@ -33,6 +34,9 @@ function addMovieRequest($row, $title, $year = null){
 
 	// Initiate request
 	$url	= API_URL.'?'.http_build_query([
+		// Auth
+		'apikey'	=> API_KEY,
+
 		// Query
 		't'		=> $title,
 		'y'		=> isset($year) ? $year : '',
