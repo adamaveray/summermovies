@@ -55,11 +55,13 @@ foreach($movies as $movie){
 }
 $ratings	= array_keys($ratings);
 
-// Remove past movies
-$now	= new \DateTime('now');
-$movies	= array_filter($movies, function(Movie $movie) use($now){
-	return ($movie->date > $now);
-});
+if(!$isArchive){
+	// Remove past movies
+	$now	= new \DateTime('now');
+	$movies	= array_filter($movies, function(Movie $movie) use($now){
+		return ($movie->date > $now);
+	});
+}
 ?>
 
 <header role="banner">
