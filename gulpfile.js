@@ -171,6 +171,8 @@ var htmlminOptions	= {
 	quoteCharacter:				'"',
 };
 registerTask('html', src('index.php'), function(source){
+	const MAX_HTML_FILE_SIZE	= 100 * 1024 * 1024;
+
 	var streams	= merge();
 
 	// Static past years
@@ -180,7 +182,7 @@ registerTask('html', src('index.php'), function(source){
 	for(var i = 0; i < max; i++){
 		pipe	= gulp
 			.src(source)
-			.pipe(exec('php -f "<%= file.path %>" -- --year <%= options.customYear %> --environment "<%= options.customEnv %>"', {pipeStdout: true, customYear: years[i], customEnv: environment}))
+			.pipe(exec('php -f "<%= file.path %>" -- --year <%= options.customYear %> --environment "<%= options.customEnv %>"', {pipeStdout: true, customYear: years[i], customEnv: environment, maxBuffer: MAX_HTML_FILE_SIZE}))
 			.pipe(rename(function(path){
 				path.extname	= '.html';
 				path.dirname	+= '/'+years[this];
@@ -193,7 +195,7 @@ registerTask('html', src('index.php'), function(source){
 
 		pipe	= gulp
 			.src(dataSource)
-			.pipe(exec('php -f "<%= file.path %>" -- --year <%= options.customYear %> --environment "<%= options.customEnv %>"', {pipeStdout: true, customYear: years[i], customEnv: environment}))
+			.pipe(exec('php -f "<%= file.path %>" -- --year <%= options.customYear %> --environment "<%= options.customEnv %>"', {pipeStdout: true, customYear: years[i], customEnv: environment, maxBuffer: MAX_HTML_FILE_SIZE}))
 			.pipe(rename({
 				extname:	'.raw',
 				basename:	'compiled'
