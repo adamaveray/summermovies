@@ -18,9 +18,9 @@ if(IS_CLI){
 if($isArchive){
 	$pageTitle	= $year.' Screenings';
 } else {
-	$pageTitle	= 'Summer Movies NYC – '.$year.' Outdoor Movie Screenings Across New York City';
+	$pageTitle	= 'Summer Movies NYC – '.$year.' Outdoor Movies Across New York City';
 }
-$pageDescription	= 'Summertime means outdoor movies time. See what movies are screening this summer across New York.';
+$pageDescription = 'Up-to-date listings of outdoor summer movies across all five boroughs New York City';
 
 $scripts	= '<script src="https://maps.googleapis.com/maps/api/js?key='.e(MAPS_KEY).'&callback=googleMapsReady" async defer></script>';
 
@@ -192,7 +192,7 @@ if(!$isArchive){
 			<ol class="movies">
 		<?php } ?>
 			<li class="movie <?=implode(' ', $movieClasses);?>" id="<?=e($movie->id);?>"
-				data-free="<?=e((isset($movie->cost) && $movie->cost != '0') ? '0' : '1');?>"
+				data-free="<?=e($movie->isFree() ? '1' : '0');?>"
 				>
 				<?php if(isset($movie->poster)){ ?>
 					<figure class="movie__poster">
