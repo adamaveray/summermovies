@@ -1,6 +1,9 @@
 {
   "name": "summer-movies",
   "version": "0.0.1",
+  "homepage": "https://summermovies.nyc/",
+  "author": "Adam Averay (https://adamaveray.com.au/)",
+  "private": true,
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-auto-reload": "^0.1.0",
