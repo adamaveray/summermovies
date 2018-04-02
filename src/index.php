@@ -192,7 +192,7 @@ if(!$isArchive){
 			<ol class="movies">
 		<?php } ?>
 			<li class="movie <?=implode(' ', $movieClasses);?>" id="<?=e($movie->id);?>"
-				data-free="<?=e((isset($movie->cost) && $movie->cost != '0') ? '0' : '1');?>"
+				data-free="<?=e($movie->isFree() ? '1' : '0');?>"
 				>
 				<?php if(isset($movie->poster)){ ?>
 					<figure class="movie__poster">

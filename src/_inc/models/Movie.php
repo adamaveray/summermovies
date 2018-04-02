@@ -34,4 +34,8 @@ class Movie extends Model {
 	private function generateID(){
 		return slugify($this->date->format('M-j').'-'.$this->title.'-'.$this->year.'-'.$this->venue->id);
 	}
+
+	public function isFree(){
+	    return ($this->cost === '0' || $this->cost === null);
+    }
 }
