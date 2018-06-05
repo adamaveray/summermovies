@@ -572,6 +572,7 @@
 				output.setAttribute('data-conditions', forecast.code);
 				setText(findOne(output, ['.forecast__temperature']), forecast.high+'º');
 				setText(findOne(output, ['.forecast__conditions']), forecast.text);
+				weather.link = (weather.link || '').replace(/^.+(https?:\/\/)/, '$1'); // Fix broken API links
 				findOne(output, ['.forecast__link']).setAttribute('href', weather.link);
 
 				element.parentNode.appendChild(output);
