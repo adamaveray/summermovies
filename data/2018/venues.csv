@@ -1,18 +1,18 @@
 id,name,location,borough,image,website,facebook,twitter,foursquare,lat,lng
 dongan-lawn-in-fort-tryon-park,Fort Tryon Park,1 Margaret Corbin Dr,manhattan,,http://nyc.gov/parks,,nycparks,a4vngx,40.860005,-73.932925
-chelsea-park,Chelsea Park,10 Avenue A (btwn W 27th & W 28th St),manhattan,,http://nyc.gov/parks,BartowPell,nycparks,iPScd,40.750311,-74.001450
-john-paul-jones-park,John Paul Jones Park ('Cannonball Park'),10108 4th Ave (101st St.),brooklyn,,http://nyc.gov/parks,BartowPell,nycparks,cbvrWP,40.611541,-74.034370
-de-witt-clinton-park,DeWitt Clinton Park,11 Avenue A (btw 52nd St & 54th St),manhattan,,http://nyc.gov/parks,BartowPell,nycparks,8tuB9F,40.767891,-73.993720
+chelsea-park,Chelsea Park,10 Avenue A (btwn W 27th & W 28th St),manhattan,,http://nyc.gov/parks,BartowPell,nycparks,iPScd,40.750311,-74.00145
+john-paul-jones-park,John Paul Jones Park ('Cannonball Park'),10108 4th Ave (101st St.),brooklyn,,http://nyc.gov/parks,BartowPell,nycparks,cbvrWP,40.611541,-74.03437
+de-witt-clinton-park,DeWitt Clinton Park,11 Avenue A (btw 52nd St & 54th St),manhattan,,http://nyc.gov/parks,BartowPell,nycparks,8tuB9F,40.767891,-73.99372
 paradise-on-earth,Paradise on Earth Community Garden,1106 Fox St,bronx,,,,,,40.826724,-73.894026
 clove-lakes-park,Clove Lakes Park,1150 Clove Rd,staten-island,,http://nyc.gov/parks,BartowPell,nycparks,9Tj1P6,40.618676,-74.109426
-museum-of-the-city-of-new-york,Museum of the City of New York,1220 5th Ave (at E 103rd St),manhattan,,http://www.mcny.org,,museumofcityny,56suEb,40.792560,-73.951818
+museum-of-the-city-of-new-york,Museum of the City of New York,1220 5th Ave (at E 103rd St),manhattan,,http://www.mcny.org,,museumofcityny,56suEb,40.79256,-73.951818
 montbellier-park,Montbellier Park,138-00 Springfield Blvd (138th Road),queens,,http://nyc.gov/parks,BartowPell,nycparks,d3NxhW,40.673673,-73.756285
 von-briesen-park,Arthur Von Briesen Park,1497-1519 Bay St,staten-island,,http://nyc.gov/parks,nycparks,nycparks,95ZByl,40.607945,-74.057417
 parade-ground-governors-island,Parade Ground,15 Evans Rd,manhattan,,,,,2vZ1bIG,40.691356,-74.014947
-wright-brothers-playground,Wright Brothers Playground,156th Street St Nicholas,manhattan,,http://nyc.gov/parks,BartowPell,nycparks,db3dLO,40.835957,-73.944540
+wright-brothers-playground,Wright Brothers Playground,156th Street St Nicholas,manhattan,,http://nyc.gov/parks,BartowPell,nycparks,db3dLO,40.835957,-73.94454
 john-jay-park,John Jay Park,2 Cherokee Pl (btwn E 76th & E 77th St),manhattan,,http://nyc.gov/parks,,nycparks,bU08ii,40.769104,-73.949756
 transmitter-park-brooklyn,WNYC Transmitter Park,2 Greenpoint Ave (West Street),brooklyn,,http://nyc.gov/parks,BartowPell,nycparks,6oIb0a,40.729745,-73.960823
-randalls-island-park-manhattan,Randall's Island Park,20 Randall's Island Park,manhattan,,https://randallsisland.org,RandallsIslandPark,randallsisland,14lMfOF,40.796112,-73.924480
+randalls-island-park-manhattan,Randall's Island Park,20 Randall's Island Park,manhattan,,https://randallsisland.org,RandallsIslandPark,randallsisland,14lMfOF,40.796112,-73.92448
 paul-raimonda-playground,Paul Raimonda Playground,20th Avenue (48th Street),queens,,http://nyc.gov/parks,BartowPell,nycparks,zBw1Lk,40.761798,-73.907125
 faber-park-in-faber-pool-and-park,Faber Park and Pool,2175 Richmond Terrace (at Faber St.),staten-island,,http://www.nycgovparks.org/parks/faberpark/,BartowPell,nycparks,bmL9MB,40.640473,-74.135801
 pier-63-chelsea,Maritime Pier 63,23rd Street,manhattan,,http://www.hudsonriverpark.org,HudsonRiverPark,hudsonriverpark,r8M8pD,40.749191,-74.009335
@@ -23,7 +23,7 @@ socrates-sculpture-park,Socrates Sculpture Park,3205 Vernon Blvd (at Broadway),q
 lewis-h-latimer-house,Lewis H. Latimer House Museum,34-41 137th St,queens,,http://nyc.gov/parks,BartowPell,nycparks,mpEmcp,40.765713,-73.830637
 j-hood-wright-park,Jay Hood Wright Park,351 Fort Washington Ave (at W 173rd St.),manhattan,,http://nyc.gov/parks,BartowPell,nycparks,9UvF2f,40.846594,-73.941065
 j-hood-wright-park-in-j-hood-wright-park,Jay Hood Wright Park,351 Fort Washington Ave (at W 173rd St.),manhattan,,http://nyc.gov/parks,BartowPell,nycparks,9UvF2f,40.846594,-73.941065
-latourette-park-parking-lot,Historic Richmond Town,441 Clarke Ave,staten-island,,http://nyc.gov/parks,BartowPell,nycparks,9WVLrJ,40.572803,-74.133430
+latourette-park-parking-lot,Historic Richmond Town,441 Clarke Ave,staten-island,,http://nyc.gov/parks,BartowPell,nycparks,9WVLrJ,40.572803,-74.13343
 pena-herrera-park-in-pena-herrera-playground,Pena Herrera Park (The Bergen School Playground),46th street and 3rd Avenue (Behind The Bergen School (P.S. 1)),brooklyn,,http://nyc.gov/parks,BartowPell,nycparks,ffMZmj,40.649307,-74.011854
 columbus-park,49 Mulberry St (btwn Bayard & Worth St),49 Mulberry St (btwn Bayard & Worth St),manhattan,,http://www.nycgovparks.org,BartowPell,nycparks,7wV9RC,40.715603,-73.999884
 greenbelt-recreation-center-blood-root-valley,Greenbelt Nature Center,501 Brielle Ave (Rockland Ave),staten-island,,http://nyc.gov/parks,BartowPell,nycparks,baB2Kk,40.586616,-74.146917
@@ -31,14 +31,14 @@ greenbelt-recreation-center-in-blood-root-valley,Greenbelt Nature Center,501 Bri
 azul-rooftop-hotel-hugo,Azul Rooftop @ Hotel Hugo,525 Greenwich St,manhattan,,http://www.hotelhugony.com/rooftop-bar,,,1zcjipW,40.726367,-74.008708
 carl-schurz-park,Carl Schurz Park,599 E 86th St (at East End Ave),manhattan,,http://nyc.gov/parks,BartowPell,nycparks,1Yce7L,40.775118,-73.943763
 bronx-terminal-market,Bronx Terminal Market,610 Exterior St,bronx,,http://www.bronxterminalmarket.com,,shopbtm,beIp39,40.823237,-73.929837
-parklife-brooklyn,Parklife,636 Degraw St,manhattan,,https://www.parklifebk.com,ParklifeBK,parklifebk,2qWMT7E,40.678855,-73.983139
+parklife-brooklyn,Parklife,636 Degraw St,brooklyn,,https://www.parklifebk.com,ParklifeBK,parklifebk,2qWMT7E,40.678855,-73.983139
 russell-sage-playground,Russell Sage Playground,68 Ave (btwn Booth & Austin Streets),queens,,http://nyc.gov/parks,BartowPell,nycparks,a9YnzX,40.724184,-73.851625
 st-catherines-park,St. Catherine's Park,68th and 1st (btw 1st and 2nd),manhattan,,http://nyc.gov/parks,BartowPell,nycparks,ckNHfz,40.765037,-73.958431
 garibaldi-plaza-in-washington-square-park,General Jose Artigas Park,6th Ave (Dominick St),manhattan,,,,,9WKqS5,40.723299,-74.005238
 harbor-view-lawn-brooklyn-bridge-park,Harbor View Lawn,73rd St,brooklyn,,,,,YspTME,40.702634,-73.996119
 cpl-thompson-park-in-cpl-thompson-park,West Brighton Playground,74-134 Broadway,staten-island,,,,,fTYqlX,40.638581,-74.117702
 mccarren-park,McCarren Park,780 Lorimer St,brooklyn,,https://www.nycgovparks.org/parks/mccarren-park,nycparks,nycparks,3UqRqJ,40.721319,-73.952534
-dyker-beach-park,Dyker Beach Park,86th Street (btw 7th & 14th),brooklyn,,http://nyc.gov/parks,BartowPell,nycparks,9lbTME,40.612680,-74.012847
+dyker-beach-park,Dyker Beach Park,86th Street (btw 7th & 14th),brooklyn,,http://nyc.gov/parks,BartowPell,nycparks,9lbTME,40.61268,-74.012847
 albee-square,Albee Square,"Albee Sq, Fulton St, Bond St, DeKalb Ave, Fleet St (Fulton Mall)",brooklyn,,,,,datv1i,40.689896,-73.983167
 the-painters-playground,The Painter's Playground,Alderton Street (btwn. Dieterle & Ellwell Crescents),queens,,,,,cGuU1f,40.720654,-73.859652
 astoria-park,Astoria Park,at Shore & Ditmars Blvd (19th St),queens,,http://nyc.gov/parks,BartowPell,nycparks,2Aolvy,40.777315,-73.923792
@@ -51,15 +51,15 @@ bill-brown-playground,Bill Brown Playground,,brooklyn,,http://nyc.gov/parks,Bart
 kelly-park-in-kelly-park-playground,Kelly Park,,brooklyn,,http://nyc.gov/parks,BartowPell,nycparks,ar45nN,40.603721,-73.957976
 lower-highland-playground-in-highland-park,Highland Park,,brooklyn,,http://www.nycgovparks.org/parks/highlandpark,BartowPell,nycparks,cl34Ha,40.682002,-73.889173
 mckinley-park,McKinley Park,,brooklyn,,http://nyc.gov/parks,BartowPell,nycparks,aCIkV3,40.626848,-74.016342
-manhattan-beach-park,Manhattan Beach,,brooklyn,,http://nyc.gov/parks,BartowPell,nycparks,bpyc85,40.577370,-73.945531
-bryant-park,Josephine Shaw Lowell Memorial Fountain - Bryant Park,Bryant Park (41st Street & 6th Avenue),manhattan,,,,bryantparknyc,mTdxnm,40.754587,-73.984108
+manhattan-beach-park,Manhattan Beach,,brooklyn,,http://nyc.gov/parks,BartowPell,nycparks,bpyc85,40.57737,-73.945531
+bryant-park,Bryant Park,E 42nd St (btwn 5th & 6th Ave),manhattan,,http://www.facebook.com/bryantparknyc,bryantparknyc,bryantparknyc,3sTG8A,40.753932,-73.983987
 rooftop-reds-brooklyn,Rooftop Reds,Building 275,brooklyn,,http://rooftopreds.com,,,1MW9KF9,40.698573,-73.977649
 hunter-s-point-south-park,Hunter's Point South Park,Center Boulevard and Borden Avenue,queens,,http://www.nycgovparks.org/parks/hunters-point-south-park,BartowPell,nycparks,14ZUw8x,40.742632,-73.960701
 hunters-point-south-park,Hunter's Point South Park,Center Boulevard and Borden Avenue,queens,,http://www.nycgovparks.org/parks/hunters-point-south-park,BartowPell,nycparks,14ZUw8x,40.742632,-73.960701
-bloomingdale-park,Bloomingdale Playground,corner of 104th & Amsterdam,manhattan,,http://nyc.gov/parks,BartowPell,nycparks,8Ga7dv,40.798840,-73.966442
+bloomingdale-park,Bloomingdale Playground,corner of 104th & Amsterdam,manhattan,,http://nyc.gov/parks,BartowPell,nycparks,8Ga7dv,40.79884,-73.966442
 tompkins-square-park,Tompkins Square Park,E 7th St to E 10th St (btwn Ave A & B),manhattan,,http://www.nycgovparks.org/parks/tompkinssquarepark,BartowPell,nycparks,2xk1xu,40.726364,-73.982231
 beach-17th-street-and-seagirt-boulevard-in-rockaway-beach-and-boardwalk,Far Rockaway Beach - 9th Street,,queens,,,,,nHB4Wg,40.595774,-73.744237
-unisphere-in-flushing-meadows-corona-park,The Unisphere,,queens,,http://nyc.gov/parks,BartowPell,nycparks,bZTqIC,40.746670,-73.845286
+unisphere-in-flushing-meadows-corona-park,The Unisphere,,queens,,http://nyc.gov/parks,BartowPell,nycparks,bZTqIC,40.74667,-73.845286
 detective-russel-timoshenko-soccer-field-in-franklin-d-roosevelt-boardwalk-and-beach,Detective Russel Timoshenko Soccer Field (aka Midland Beach Soccer Field),Franklin D Roosevelt Boardwalk & Beach,staten-island,,http://nyc.gov/parks,nycparks,nycparks,b4UaZn,40.575435,-74.081948
 corporal-john-a-seravalli-playground,John A. Seravalli Park,Horatio Street (Hudson and Horatio),manhattan,,http://www.nycgovparks.org/parks/M237/,BartowPell,nycparks,dzGb9J,40.739018,-74.004883
 samuel-seabury-playground,Samuel Seabury Playground,Lexington Ave (at E 96th St),manhattan,,http://nyc.gov/parks,BartowPell,nycparks,cQBjpD,40.785475,-73.950763
@@ -67,20 +67,20 @@ willowbrook-park-archery-range-in-willowbrook-park,Willowbrook Park Archery Rang
 little-flower-playground,Little Flower Playground,Madison St (Jefferson St),manhattan,,http://nyc.gov/parks,BartowPell,nycparks,btxv9o,40.712427,-73.989251
 mccarren-park-pool-deck-mccarren-park,McCarren Park Pool & Play Center,McCarren Park,brooklyn,,http://www.nycgovparks.org/parks/mccarrenpark/facilities/pools,BartowPell,nycparks,qDv4hn,40.720039,-73.950118
 marcus-garvey-park,Marcus Garvey Park,Mt. Morris Park W & Madison Ave (btwn W 120th & W 124th St),manhattan,,http://nyc.gov/parks,,nycparks,c0qy2o,40.804883,-73.944332
-field-42-randalls-island,Randalls Island Baseball Field #42,,manhattan,,,,,aPOAz9,40.823193,-73.868023
+field-42-randalls-island,Randalls Island Baseball Field #42,,manhattan,,,,,aPOAz9,40.796490,-73.915651
 field-81-randalls-island,Randalls Island Field #81,,manhattan,,,,,1SXXYLI,40.783004,-73.932909
-rotunda-columbia-university,Van Am Rotunda,,manhattan,,,,,fMIamk,40.806410,-73.962303
-oculus-plaza,Oculus Plaza,,manhattan,,,,,2wt6cVK,40.711810,-74.011629
+rotunda-columbia-university,Van Am Rotunda,,manhattan,,,,,fMIamk,40.80641,-73.962303
+oculus-plaza,Oculus Plaza,,manhattan,,,,,2wt6cVK,40.71181,-74.011629
 samuel-n-bennerson-2nd-playground,Samuel N. Bennerson 2nd Playground,,manhattan,,http://nyc.gov/parks,BartowPell,nycparks,cWTrXj,40.774141,-73.987736
 moore-playground,Moore Playground,,manhattan,,http://nyc.gov/parks,BartowPell,nycparks,adjcuC,40.809396,-73.938288
 intrepid,"Intrepid Sea, Air & Space Museum",Pier 86 (at W 46th St & 12th Ave),manhattan,,http://www.intrepidmuseum.org,IntrepidMuseum,intrepidmuseum,642ATp,40.764578,-73.999631
 long-meadow-north-prospect-park,Long Meadow,Prospect Park (East Drive),brooklyn,,http://nyc.gov/parks,BartowPell,nycparks,1Jygt8,40.668758,-73.970304
 rory-staunton-field,Rory Staunton Field,,queens,,,,,16Brixl,40.754039,-73.888869
 sean-s-place,Sean's Place Playground,,queens,,,,,19wKEI2,40.760722,-73.918587
-brevoort-playground,Brevoort Playground,Ralph Ave. bet. Chauncey St. and Sumpter St.,brooklyn,,http://www.nycgovparks.org/parks/brevoortplayground,,nycparks,lDqr52,40.680121,-73.922810
+brevoort-playground,Brevoort Playground,Ralph Ave. bet. Chauncey St. and Sumpter St.,brooklyn,,http://www.nycgovparks.org/parks/brevoortplayground,,nycparks,lDqr52,40.680121,-73.92281
 riverside-park-pier-1,Riverside Park South,Riverside Blvd (65th & 72nd Sts),manhattan,,http://nyc.gov/parks,BartowPell,nycparks,608Fdk,40.778324,-73.989111
 firefighters-field-roosevelt-island,Firefighters Field,Roosevelt Island,manhattan,,,,,9YDkTr,40.757903,-73.953194
-lemon-creek-park,Lemon Creek Park,Seguine Avenue (Johnston Terrace),staten-island,,http://nyc.gov/parks,BartowPell,nycparks,pz1UTM,40.512527,-74.198090
+lemon-creek-park,Lemon Creek Park,Seguine Avenue (Johnston Terrace),staten-island,,http://nyc.gov/parks,BartowPell,nycparks,pz1UTM,40.512527,-74.19809
 shore-park,Shore Park,Shore Road,bronx,,,,,ddHBgi,40.885033,-73.791813weathe
 st-nicholas-park,St. Nicholas Park,St. Nicholas Ave (btwn 128th & 141st St),manhattan,,http://www.nycgovparks.org/parks/stnicholaspark,BartowPell,nycparks,bLMN0n,40.817885,-73.948438
 st-nicholas-park-135-lawn-in-st-nicholas-park,St. Nicholas Park,St. Nicholas Ave (btwn 128th & 141st St),manhattan,,http://www.nycgovparks.org/parks/stnicholaspark,BartowPell,nycparks,bLMN0n,40.817885,-73.948438
@@ -89,8 +89,8 @@ washington-square-park,Washington Square Park,W 4th St (btwn MacDougal St & Univ
 pier-i-in-riverside-park-south,Pier I Cafe,W. 70th St (Riverside Park South),manhattan,,http://piericafe.com,,piericafe,ci5E6k,40.779827,-73.988886
 fort-greene-park,Fort Greene Park,Washington Park (btwn Myrtle & DeKalb Ave),brooklyn,,http://nyc.gov/parks,nycparks,nycparks,6Rc4IJ,40.691621,-73.975646
 pier-46-greenwich-village,Pier 46,West St (at Charles St),manhattan,,http://www.hudsonriverpark.org,HudsonRiverPark,hudsonriverpark,901qrk,40.734157,-74.011132
-schmul-park,Schmul Park,Wild Avenue (Melvin Avenue),staten-island,,http://nyc.gov/parks,BartowPell,nycparks,dtOoSh,40.590105,-74.188300
-george-seuffert-bandshell-in-forest-park,George Seuffert Bandshell,"Woodhaven, NY 11421",queens,,,,,cItbmT,40.699030,-73.857955
+schmul-park,Schmul Park,Wild Avenue (Melvin Avenue),staten-island,,http://nyc.gov/parks,BartowPell,nycparks,dtOoSh,40.590105,-74.1883
+george-seuffert-bandshell-in-forest-park,George Seuffert Bandshell,"Woodhaven, NY 11421",queens,,,,,cItbmT,40.69903,-73.857955
 yellowstone-park,Yellowstone Park,Yellowstone Blvd (68th Road),queens,,http://nyc.gov/parks,BartowPell,nycparks,dnaFUu,40.726251,-73.847759
 coney-island-beach,Coney Island Beach,,brooklyn,,https://www.nycgovparks.org/parks/coney-island-beach-and-boardwalk/,nycparks,nycparks,70HQMX,40.5729572680988,-73.9809894561767
 the-meadow-cedar-grove-park,Cedar Grove Park,,staten-island,,,,,,40.563968,-74.097731
