@@ -1,15 +1,12 @@
 const gulp = require('gulp');
 
 const autoprefixer = require('gulp-autoprefixer');
-const autoReload = require('gulp-auto-reload');
-const concat = require('gulp-concat');
 const cssmin = require('gulp-clean-css');
 const exec = require('gulp-exec');
 const htmlmin = require('gulp-htmlmin');
 const fs = require('fs');
 const imagemin = require('gulp-imagemin');
 const merge = require('merge-stream');
-//const pngquant = require('imagemin-pngquant');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
@@ -40,7 +37,7 @@ const inlineImages = (function(root){
 			return 'url("'+dataURI+'")';
 		});
 
-		file.contents	= new Buffer(contents);
+		file.contents	= Buffer.from(contents);
 		callback(null, file);
 	});
 });
@@ -76,13 +73,14 @@ function dest(path){
 
 var watchSources	= {},
 	defaultTasks	= [];
-function registerTask(name, pattern, callback, dependencies){
+function registerTask(name, pattern, callback, dependencies = []){
 	defaultTasks.push(name);
 
 	watchSources[pattern]	= [name];
-	return gulp.task(name, dependencies || [], function(){
-		return callback(pattern);
-	});
+	return gulp.task(name, gulp.series(...[
+		...dependencies,
+		() => callback(pattern),
+	]));
 }
 
 registerTask('images', src('img/**/*.{jpg,png,gif,svg}'), function(source){
@@ -145,9 +143,7 @@ registerTask('styles', src('scss/**/*.scss'), function(source){
 			.src(source)
 			.pipe(sourcemaps.init())
 			.pipe(sass())
-			.pipe(autoprefixer({
-				browsers:	['> 1%']
-			}))
+			.pipe(autoprefixer())
 			.pipe(inlineImages(dirDest))
 			.pipe(isProduction ? cssmin({ compatibility: 'ie8' }) : noop())
 			.pipe(dest('css'));
@@ -280,22 +276,10 @@ gulp.task('fetch-posters', function(){
 // Reload on data changes
 watchSources[dirData+'/**/*.csv']	= ['html'];
 
-gulp.task('html:autoreloader', function() {
-	const reloader = autoReload();
-
-	reloader.script()
-		.pipe(dest(''));
-
-	htmlInject	= reloader.inject;
-
-	gulp.watch(dirDest+'/**/*', reloader.onChange);
-});
-
-gulp.task('watch', ['html:autoreloader', 'default'], function(){
+gulp.task('default', gulp.parallel(...defaultTasks));
+gulp.task('watch', gulp.series('default', function(){
 	for(var source in watchSources){
-		if(!watchSources.hasOwnProperty(source)){ continue; }
-		gulp.watch(source, watchSources[source]);
+		gulp.watch(source, gulp.parallel(...watchSources[source]));
 	}
-});
+}));
 
-gulp.task('default', defaultTasks);

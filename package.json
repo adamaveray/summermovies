@@ -4,6 +4,7 @@
   "homepage": "https://summermovies.nyc/",
   "author": "Adam Averay (https://adamaveray.com.au/)",
   "private": true,
+  "browsers": ["> 1%" ],
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
