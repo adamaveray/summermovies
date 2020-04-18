@@ -137,6 +137,10 @@ if(!$isArchive){
 			</li>
 		</ul>
 	</header>
+	<?php } else if ($year === '2020') { ?>
+		<div class="special-notice">
+			<p class="special-notice__message">Due to COVID-19 all screenings have been postponed or outright cancelled. Subscribe below for updates should the situation change. #stayhome</p>
+		</div>
 	<?php } else { ?>
 		<header class="no-results no-results--<?=($hasMovies ? 'past' : 'future');?>">
 			<h2 class="no-results__title">That's A Wrap!</h2>
