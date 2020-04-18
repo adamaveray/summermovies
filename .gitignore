@@ -1,5 +1,6 @@
 node_modules
 /dist/img/posters/
+/dist/**/*.map
 /deploy
 /dist/auto-reload.js
 /data/omdb-api-key.txt
