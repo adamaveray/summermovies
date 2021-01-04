@@ -164,14 +164,15 @@ registerTask('data', src('data.php'), function(source){
 	var max	= years.length,
 		pipe;
 	for(var i = 0; i < max; i++){
+    const year = years[i];
 		pipe	= gulp
 			.src(source)
-			.pipe(exec('php -f "<%= file.path %>" -- --year <%= options.customYear %> --environment "<%= options.customEnv %>"', {pipeStdout: true, customYear: years[i], customEnv: environment, maxBuffer: MAX_HTML_FILE_SIZE}))
+			.pipe(exec(file => `php -f "${file.path}" -- --year "${year}" --environment "${environment}"`, {pipeStdout: true, maxBuffer: MAX_HTML_FILE_SIZE}))
 			.pipe(rename({
 				extname:	'.raw',
 				basename:	'compiled'
 			}))
-			.pipe(dest('../data/'+years[i]+'/'));
+			.pipe(dest('../data/'+year+'/'));
 
 		streams.add(pipe);
 	}
@@ -199,9 +200,10 @@ registerTask('html', src('index.php'), function(source){
 	var max	= years.length,
 		pipe;
 	for(var i = 0; i < max; i++){
+    const year = years[i];
 		pipe	= gulp
 			.src(source)
-			.pipe(exec('php -f "<%= file.path %>" -- --year <%= options.customYear %> --environment "<%= options.customEnv %>"', {pipeStdout: true, customYear: years[i], customEnv: environment, maxBuffer: MAX_HTML_FILE_SIZE}))
+			.pipe(exec(file => `php -f "${file.path}" -- --year "${year}" --environment "${environment}"`, {pipeStdout: true, maxBuffer: MAX_HTML_FILE_SIZE}))
 			.pipe(rename(function(path){
 				path.extname	= '.html';
 				path.dirname	+= '/'+years[this];
@@ -228,7 +230,7 @@ registerTask('html:supporting', src('{404,500}.php'), function(source){
 	// Check for environment flag
 	return gulp
 			.src(source)
-			.pipe(exec('php -f "<%= file.path %>" -- --environment "<%= options.customEnv %>"', {pipeStdout: true, customEnv: environment}))
+			.pipe(exec(file => `php -f "${file.path}" -- --environment "${environment}"`, {pipeStdout: true}))
 			.pipe(rename({
 				extname: '.html'
 			}))
@@ -260,7 +262,7 @@ gulp.task('sync-data', function(){
 
 	return gulp
 			.src('./sync-data.php')
-			.pipe(exec('php -f "<%= file.path %>" -- "<%= options.customYear %>"', {customYear: year}))
+			.pipe(exec(file => `php -f "${file.path}" -- "${year}"`, {pipeStdout: true}))
 			.pipe(exec.reporter());
 });
 
@@ -269,7 +271,7 @@ gulp.task('fetch-posters', function(){
 
 	return gulp
 			.src('./fetch-posters.php')
-			.pipe(exec('php -f "<%= file.path %>" -- "<%= options.customYear %>"', {customYear: year}))
+			.pipe(exec(file => `php -f "${file.path}" -- "${year}"`, {pipeStdout: true}))
 			.pipe(exec.reporter());
 });
 
