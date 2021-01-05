@@ -4,6 +4,9 @@
   "homepage": "https://summermovies.nyc/",
   "author": "Adam Averay (https://adamaveray.com.au/)",
   "private": true,
+  "scripts": {
+    "build": "gulp"
+  },
   "browsers": [
     "> 1%"
   ],
