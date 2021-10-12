@@ -1,18 +1,22 @@
-const gulp = require('gulp');
+import imagemin from 'gulp-imagemin';
+import gulp from 'gulp';
 
-const autoprefixer = require('gulp-autoprefixer');
-const cssmin = require('gulp-clean-css');
-const exec = require('gulp-exec');
-const htmlmin = require('gulp-htmlmin');
-const fs = require('fs');
-const imagemin = require('gulp-imagemin');
-const merge = require('merge-stream');
-const rename = require('gulp-rename');
-const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
-const through = require('through2');
-const uglify = require('gulp-uglify');
-const args = require('yargs').argv;
+import autoprefixer from 'gulp-autoprefixer';
+import cssmin from 'gulp-clean-css';
+import exec from 'gulp-exec';
+import htmlmin from 'gulp-htmlmin';
+import uglify from 'gulp-uglify';
+import fs from 'fs';
+import merge from 'merge-stream';
+import rename from 'gulp-rename';
+import sassBuilder from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
+import through, { obj as noop} from 'through2';
+import sassLib from 'sass';
+import yargs from 'yargs';
+
+const sass = sassBuilder(sassLib);
+const args = yargs().argv;
 
 const inlineImages = (function(root){
 	// Embed SVGs (/* @inline */ url(...)
@@ -42,7 +46,6 @@ const inlineImages = (function(root){
 	});
 });
 
-const noop	= require('through2').obj;
 
 const dirSrc	= './src',
 	  dirDest	= './dist',
