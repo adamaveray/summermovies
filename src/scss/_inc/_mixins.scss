@@ -63,6 +63,6 @@
 	left:	$left;
 	width:	$width;
 	height:	$height;
-	margin-top:		-($height / 2);
-	margin-left:	-($width / 2);
+	margin-top:		-($height * 0.5);
+	margin-left:	-($width * 0.5);
 }

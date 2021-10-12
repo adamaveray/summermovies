@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $padding-top:			0.3rem;
 $padding-side:			1.2rem;
 $breakpoint-columns:	650px;
@@ -71,13 +73,13 @@ header[role="banner"] {
 		position:	absolute;
 		top:		55%;
 		left:		13.5%;
-		margin:		-($logo-height/2) 0 0 -($logo-width/2);
+		margin:		-($logo-height*0.5) 0 0 -($logo-width*0.5);
 		z-index:	2;
 	}
 
 	$logo-effects-padding:	15px;
 	$height:			5rem;
-	$height--stripe:	$height / 3;
+	$height--stripe:	math.div($height, 3);
 	$height--stripe--inner:	84px;
 	$basic-transform:	rotate(-5deg) skew(-9deg);
 	$transform-shift:	5%;
@@ -97,7 +99,7 @@ header[role="banner"] {
 			bottom:			50%;
 			left:			10%;
 			margin-left:	$logo-width + $logo-effects-padding;
-			margin-bottom:	-($height--stripe--inner / 2) + 18px;
+			margin-bottom:	-($height--stripe--inner * 0.5) + 18px;
 			width:			80%;
 			transform:	$basic-transform translateX($transform-shift);
 		}
@@ -105,7 +107,7 @@ header[role="banner"] {
 			top:		50%;
 			left:		0;
 			width:		10%;
-			margin-top:	-($height--stripe--inner / 2) + 18px;
+			margin-top:	-($height--stripe--inner * 0.5) + 18px;
 			transform:	$basic-transform translateX(-$transform-shift);
 		}
 }
@@ -124,7 +126,7 @@ header[role="banner"] {
 		right:			$margin;
 		width:			0;
 		height:			$size;
-		padding-top:	(($size - $textHeight) / 2);
+		padding-top:	(($size - $textHeight) * 0.5);
 		padding-right:	$size;
 		overflow:		hidden;
 		text-align:		right;
@@ -439,8 +441,8 @@ main {
 			letter-spacing:	-0.285em;
 
 			&.__active {
-				border-left:	solid ($movie-padding-side/3) $color-red;
-				padding-left:	$movie-padding-side/3 * 2;
+				border-left:	solid math.div($movie-padding-side, 3) $color-red;
+				padding-left:	math.div($movie-padding-side, 3) * 2;
 			}
 			&.__filtered-out {
 				display:	none;
@@ -557,7 +559,7 @@ main {
 						vertical-align:	middle;
 					}
 
-					$detail-ratio:	6/13;
+					$detail-ratio:	math.div(6, 13);
 					&--date {
 						width:	100% * $detail-ratio;
 
@@ -885,7 +887,7 @@ main {
 		left:			50%;
 		width:			$width;
 		height:			$labelHeight;
-		margin:			(-($height+$labelHeight) / 2) 0 0 (-$width / 2);
+		margin:			(-($height+$labelHeight) * 0.5) 0 0 (-$width * 0.5);
 		padding-top:	$height;
 		font-size:		0.8em;
 		color:			#fff;
@@ -907,7 +909,7 @@ main {
 			position:	absolute;
 			top:		0;
 			bottom:		$labelHeight + 5px;
-			width:		$width/3;
+			width:		math.div($width, 3);
 			box-sizing:	border-box;
 			border:		solid 4px #fff;
 			border-left-width:	3px;
@@ -923,12 +925,12 @@ main {
 			&:after {
 				left:	33%;
 				transform:	skew(0, -10deg);
-				animation-delay:	($speed / 3) * 1;
+				animation-delay:	math.div($speed, 3) * 1;
 			}
 			&__label:before {
 				left:	66%;
 				border-right-width:	4px;
-				animation-delay:	($speed / 3) * 2;
+				animation-delay:	math.div($speed, 3) * 2;
 			}
 	}
 
@@ -994,7 +996,7 @@ main {
 				left:			25%;
 				right:			auto;
 				width:			$max-width;
-				margin-left:	-$max-width/2;
+				margin-left:	-$max-width*0.5;
 			}
 
 			@media only screen and (max-width: $breakpoint-columns) {
